@@ -1,0 +1,53 @@
+<!-- 
+   <div *ngFor="let product of products$ | async">
+    <img [src]="product.immagine" alt="{{ product.titolo }}">
+    <h3>{{ product.titolo }}</h3>
+    <p>Rating: {{ product.rating }}</p>
+    Altri dettagli del prodotto 
+  </div> -->
+
+<div class="container-fluid font">
+  <div class="row">
+
+    <div class="col-md-12 d-flex flex-wrap">
+      <div class="product-grid my-3 mx-2" style="width: 20em" *ngFor="let product of products$ |async">
+        <div class="product-image d-flex justify-content-center zoombanner">
+         <img [src]="product.immagine">
+        </div>
+        <h6> {{ product.titolo }}</h6>
+        <ng-template #templb>
+          <p>non ci sono recensioni</p>
+        </ng-template>
+
+        <div class="rating">
+          <ng-container *ngIf="product.rating > 0 && product.rating >= 5">
+            <div class="alert alert-success text-center" role="alert">
+
+              <span style="font-size: 24px; color: gold;"
+                *ngFor="let _ of [].constructor(product.rating); let i = index">★</span>
+
+              <p>Valutazione massima </p>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="product.rating > 0 && product.rating < 5">
+            <span style="font-size: 24px; color: gold;"
+              *ngFor="let _ of [].constructor(product.rating); let i = index">★</span>
+
+          </ng-container>
+          <ng-container *ngIf="product.rating <=0">
+            <div class="alert alert-danger text-center" role="alert">
+              <p>Nessuna recensione</p>
+            </div>
+          </ng-container>
+
+        </div>
+        <div class="product-content">
+          <h3 class="title"><a href="#">Mulinelli</a></h3>
+          <!-- <div class="price"> {{ prodotto.prezzo }} -->
+          <!-- <span> {{ prodotto.prezzo }}</span> -->
+        </div>
+        <a class="add-to-cart" href="">+ Aggiungi al carrello</a>
+      </div>
+    </div>
+  </div>
+</div>

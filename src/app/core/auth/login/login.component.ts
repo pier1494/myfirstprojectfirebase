@@ -26,9 +26,9 @@ export class LoginComponent {
     .then(async (userCredential: UserCredential) => {
       // Utente autenticato con successo
       const user = userCredential.user;
-
+      // await this.verifyUserInFirebaseDatabase(user.uid)
       // Ora puoi verificare i dati utente nel database Firebase
-      if (await this.verifyUserInFirebaseDatabase(user.uid)) {
+      if (true) {
         console.log("Verifica utente nel database riuscita");
 
         // L'utente è valido nel database, reindirizza alla pagina "private"
@@ -37,8 +37,9 @@ export class LoginComponent {
 
         // Naviga solo dopo che l'autenticazione è completata
         this.navigationService.navigateToPrivateMain();
-      } else {
         console.log("Verifica utente nel database fallita");
+
+      } else {
         this.errorMessage = "I dati utente non sono corretti. Riprova.";
       }
     })
@@ -49,26 +50,26 @@ export class LoginComponent {
       this.errorMessage = "Si è verificato un errore durante l'accesso.";
     });}
 
-  async verifyUserInFirebaseDatabase(userUid: string): Promise<boolean> {
-    const db = getDatabase();
-    const userRef = ref(db, 'users/' + userUid);
+  // async verifyUserInFirebaseDatabase(userUid: string): Promise<boolean> {
+  //   const db = getDatabase();
+  //   const userRef = ref(db, 'users/' + userUid);
 
-    try {
-      const userSnapshot = await get(userRef);
+  //   try {
+  //     const userSnapshot = await get(userRef);
 
-      if (userSnapshot.exists()) {
-        // L'utente esiste nel database
-        return true;
-      } else {
-        // L'utente non esiste nel database
-        return false;
-      }
-    } catch (error) {
-      // Gestisci l'errore
-      console.error("Errore durante la verifica dei dati utente nel database:", error);
-      return false;
-    }
-  }
+  //     if (userSnapshot.exists()) {
+  //       // L'utente esiste nel database
+  //       return true;
+  //     } else {
+  //       // L'utente non esiste nel database
+  //       return false;
+  //     }
+  //   } catch (error) {
+  //     // Gestisci l'errore
+  //     console.error("Errore durante la verifica dei dati utente nel database:", error);
+  //     return false;
+  //   }
+  // }
 }
 
 

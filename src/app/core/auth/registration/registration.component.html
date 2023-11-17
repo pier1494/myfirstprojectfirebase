@@ -6,7 +6,7 @@
                     <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                            <p class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 text-white">Registrati</p>
+                            <p class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrati</p>
 
                             <form class="mx-1 mx-md-4" novalidate>
 
@@ -15,16 +15,11 @@
                                         <div class="mb-2">
                                         </div>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input type="text" name="dati"
-                                               required id="form3Example1c" />
+                                           
                                             <label class="form-label" for="form3Example1c">Nome</label>
-                                            <input type="text" #input name="nome" required
-                                                id="form3Example1c" class="form-control" />
-                                            <label class="form-label" for="form3Example1c">Nome</label>
-                                            <input type="text" name="cognome"
-                                               required id="form3Example1c"
-                                                class="form-control" />
-                                            <label class="form-label" for="form3Example1c">Cognome</label>
+                                            <input type="text" #input name="nome" required id="form3Example1c" class="form-control"[(ngModel)]="nome" />
+                                            <label class="form-label" for="form3Example1c">cognome</label>
+                                            <input type="text" name="cognome" required id="form3Example2c"  [(ngModel)]="cognome" class="form-control" />
 
                                         </div>
                                     </div>
@@ -56,7 +51,7 @@
                                         <div class="d-flex">
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="password" name="passwordCtrl" 
-                                                    id="form3Example4cd" class="form-control" />
+                                                    id="form3Example5cd" class="form-control" />
                                                 <label class="form-label" for="form3Example4cd">Ripeti password</label>
                                             </div>
                                         </div>
@@ -80,7 +75,7 @@
                         </div>
                         <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                            <img src="assets/images/registrazione.jpg" class="img-fluid w-100">
+                            <img src="https://crowdinvestitalia.it/img/registrati.png" class="img-fluid w-100">
 
                         </div>
                     </div>

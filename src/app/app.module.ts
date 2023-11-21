@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './core/topbar/topbar.component';
-import { PublicModule } from './core/public/public.module';
+import { PublicModule } from './core/product/product.module';
 import { PrivateModule } from './core/private/private.module';
 import { AuthModule } from './core/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,12 +17,14 @@ import { getAnalytics } from 'firebase/analytics';
 import { firebaseConfig } from './configurazioneFirebase';
 import { NavigationServiceService } from './navigation-service.service';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
+import { CartComponent } from './core/product/cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
     DashboardComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

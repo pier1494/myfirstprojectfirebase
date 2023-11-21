@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { prodotti } from './interface/dbmodel';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { prodotti } from './interfaceproduct/dbmodel';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../configurazioneFirebase';
+import { db } from '../../configurazioneFirebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductServiceService {
+ 
+
+
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<prodotti[]> {
@@ -23,4 +26,6 @@ export class ProductServiceService {
       });
     });
   }
+
+
 }

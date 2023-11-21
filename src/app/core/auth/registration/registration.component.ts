@@ -66,32 +66,36 @@ export class RegistrationComponent {
   async registerUser() {
     this.successMessage = [];
     this.validatePassword(); // Chiamare validatePassword prima di procedere
-
+  
     if (this.reactiveForm.valid && this.errorMessages.length === 0) {
       const auth = getAuth();
       const email = this.reactiveForm.value.email;
       const password = this.reactiveForm.value.password;
-
+  
       try {
         const userCredential: UserCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
-        this.successMessage.push('registrazione avvenuta con successo')
-
-        const docRef = await addDoc(collection(db, "users"), {
+        this.successMessage.push('Registrazione avvenuta con successo');
+  
+        // Ritardare il redirect di 3 secondi (3000 millisecondi)
+        setTimeout(() => {
+          // Aggiungi qui la navigazione alla pagina successiva
+          this.router.navigate(['/login']);
+        }, 2000);
+  
+        const docRef = await addDoc(collection(db, 'users'), {
           nome: this.reactiveForm.value.nome,
           cognome: this.reactiveForm.value.cognome,
           email: email,
           password: password,
           id: user.uid
         });
-        console.log("Document written with ID: ", docRef.id);
-        // Puoi aggiungere qui la navigazione alla pagina successiva
-        this.router.navigate(['/login']);
+        console.log('Document written with ID: ', docRef.id);
       } catch (e) {
-        this.errorMessages.push('utente già registrato');
-
+        this.errorMessages.push('Utente già registrato');
         // Puoi gestire l'errore e visualizzare un messaggio appropriato
       }
     }
   }
+  
 }

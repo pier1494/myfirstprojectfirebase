@@ -13,7 +13,7 @@ import { NavigationServiceService } from 'src/app/navigation-service.service';
 export class LoginComponent {
   constructor(private router: Router,
     private navigationService: NavigationServiceService
-   ) {}
+  ) { }
   email: string = '';
   password: string = '';
   errorMessage: string = '';
@@ -23,32 +23,33 @@ export class LoginComponent {
     const auth = getAuth();
 
     signInWithEmailAndPassword(auth, this.email, this.password)
-    .then(async (userCredential: UserCredential) => {
-      // Utente autenticato con successo
-      const user = userCredential.user;
-      // await this.verifyUserInFirebaseDatabase(user.uid)
-      // Ora puoi verificare i dati utente nel database Firebase
-      if (true) {
-        console.log("Verifica utente nel database riuscita");
+      .then(async (userCredential: UserCredential) => {
+        // Utente autenticato con successo
+        const user = userCredential.user;
+        // await this.verifyUserInFirebaseDatabase(user.uid)
+        // Ora puoi verificare i dati utente nel database Firebase
+        if (true) {
+          console.log("Verifica utente nel database riuscita");
 
-        // L'utente è valido nel database, reindirizza alla pagina "private"
-        this.successMessage = "Accesso riuscito! Benvenuto di nuovo!";
-        this.errorMessage = "";
+          // L'utente è valido nel database, reindirizza alla pagina "private"
+          this.successMessage = "Accesso riuscito! Benvenuto di nuovo!";
+          this.errorMessage = "";
 
-        // Naviga solo dopo che l'autenticazione è completata
-        this.navigationService.navigateToPrivateMain();
-        console.log("Verifica utente nel database fallita");
+          // Naviga solo dopo che l'autenticazione è completata
+          this.navigationService.navigateToPrivateMain();
+          console.log("Verifica utente nel database fallita");
 
-      } else {
-        this.errorMessage = "I dati utente non sono corretti. Riprova.";
-      }
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error("Errore durante l'autenticazione:", errorCode, errorMessage);
-      this.errorMessage = "Si è verificato un errore durante l'accesso.";
-    });}
+        } else {
+          this.errorMessage = "I dati utente non sono corretti. Riprova.";
+        }
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error("Errore durante l'autenticazione:", errorCode, errorMessage);
+        this.errorMessage = "Si è verificato un errore durante l'accesso.";
+      });
+  }
 
   // async verifyUserInFirebaseDatabase(userUid: string): Promise<boolean> {
   //   const db = getDatabase();

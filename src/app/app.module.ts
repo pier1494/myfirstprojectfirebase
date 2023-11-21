@@ -16,11 +16,13 @@ import { getAnalytics } from 'firebase/analytics';
 // Import your Firebase configuration
 import { firebaseConfig } from './configurazioneFirebase';
 import { NavigationServiceService } from './navigation-service.service';
+import { DashboardComponent } from './core/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

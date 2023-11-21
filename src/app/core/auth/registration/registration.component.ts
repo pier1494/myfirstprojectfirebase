@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from "@angular/forms";
 import { Router } from "@angular/router";
 import { getAuth, createUserWithEmailAndPassword, UserCredential } from "firebase/auth";
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc } from "firebase/firestore";
 import { db } from "src/app/configurazioneFirebase";
 
 @Component({
@@ -12,6 +12,9 @@ import { db } from "src/app/configurazioneFirebase";
 })
 export class RegistrationComponent {
   reactiveForm: FormGroup;
+  errorMessages: string[] = [];
+  successMessage: string[] = [];
+
 
   @ViewChild('passwordInput') passwordInput: ElementRef | undefined;
   @ViewChild('confirmPasswordInput') confirmPasswordInput: ElementRef | undefined;
@@ -41,25 +44,30 @@ export class RegistrationComponent {
   }
 
   validatePassword(): void {
+    this.errorMessages = [];
+
     const passwordControl = this.reactiveForm.get('password');
     const confirmPasswordControl = this.reactiveForm.get('confirmPassword');
-  
+
     if (passwordControl && confirmPasswordControl) {
       const password = passwordControl.value;
       const confirmPassword = confirmPasswordControl.value;
-  
-      if (password === confirmPassword) {
-        confirmPasswordControl.setErrors(null);
+
+      if (!password || !confirmPassword) {
+        this.errorMessages.push('Entrambi i campi password sono obbligatori.');
+      } else if (password !== confirmPassword) {
+        this.errorMessages.push('Le password non corrispondono.');
       } else {
-        confirmPasswordControl.setErrors({ passwordsNotMatch: true });
+        confirmPasswordControl.setErrors(null);
       }
     }
   }
-  
+
   async registerUser() {
+    this.successMessage = [];
     this.validatePassword(); // Chiamare validatePassword prima di procedere
 
-    if (this.reactiveForm.valid) {
+    if (this.reactiveForm.valid && this.errorMessages.length === 0) {
       const auth = getAuth();
       const email = this.reactiveForm.value.email;
       const password = this.reactiveForm.value.password;
@@ -67,6 +75,7 @@ export class RegistrationComponent {
       try {
         const userCredential: UserCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
+        this.successMessage.push('registrazione avvenuta con successo')
 
         const docRef = await addDoc(collection(db, "users"), {
           nome: this.reactiveForm.value.nome,
@@ -75,12 +84,12 @@ export class RegistrationComponent {
           password: password,
           id: user.uid
         });
-
         console.log("Document written with ID: ", docRef.id);
         // Puoi aggiungere qui la navigazione alla pagina successiva
-        this.router.navigate(['/success']);
+        this.router.navigate(['/login']);
       } catch (e) {
-        console.error("Registration error: ", e);
+        this.errorMessages.push('utente già registrato');
+
         // Puoi gestire l'errore e visualizzare un messaggio appropriato
       }
     }

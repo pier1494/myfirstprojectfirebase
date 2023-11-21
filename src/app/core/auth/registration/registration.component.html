@@ -1,148 +1,63 @@
-<div class="container h-100 font">
+<div class="container h-100 font d-flex">
     <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-lg-12 col-xl-11">
+        <div class="col-md-12 col-xl-11">
             <div style="border-radius: 25px;">
-                <div class="card-body p-md-5">
+                <div class="card-body p-md-5 d-flex justify-content-center">
                     <div class="row justify-content-center">
-                        <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                        <div class="col-md-10 col-lg-6 col-xl-12 order-2 order-lg-1">
 
                             <p class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrati</p>
-
-                            <form [formGroup]="reactiveForm" (ngSubmit)="registerUser()" novalidate>
-
-                                <!-- ... altri campi del form ... -->
-                
-                                <div class="form-group">
-                                  <label for="nome">Nome</label>
-                                  <input type="text" value="nome" formControlName="nome" class="form-control">
-                                </div>
-                
-                                <div class="form-group">
-                                  <label for="cognome">Cognome</label>
-                                  <input type="text" value="cognome" formControlName="cognome" class="form-control">
-                                </div>
-                
-                                <div class="form-group">
-                                  <label for="email">Email</label>
-                                  <input type="email" value="email" formControlName="email" class="form-control">
-                                </div>
-                
-                                <div class="form-group">
-                                  <label for="password">Password</label>
-                                  <input type="password" value="password" formControlName="password" class="form-control">
-                                </div>
-                
-                                <div class="form-group">
-                                  <label for="confirmPassword">Conferma Password</label>
-                                  <input type="password" value="confirmPassword" formControlName="confirmPassword" class="form-control">
-                                  <div *ngIf="reactiveForm.hasError('passwordsNotMatch')">
-                                    Le password non corrispondono. Inserisci password uguali.
-                                  </div>
-                                </div>
-                
-                                <div class="d-flex  mb-lg-4">
-                                  <input type="submit" class="btn btn-primary ms-5 btn-lg" value="Registrati">
-                                </div>
-                              </form>
+                            <!-- Messaggio di errore -->
+                            <div *ngIf="errorMessages.length > 0" class="error-messages">
+                                <p *ngFor="let errorMessage of errorMessages">{{ errorMessage }}</p>
                             </div>
-                          
-                        </div>
-                        <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                            <img src="https://crowdinvestitalia.it/img/registrati.png" class="img-fluid w-100">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-<!-- <div class="container h-100 font">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-lg-12 col-xl-11">
-            <div style="border-radius: 25px;">
-                <div class="card-body p-md-5">
-                    <div class="row justify-content-center">
-                        <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-                            <p class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrati</p>
-
-                            <form class="mx-1 mx-md-4" novalidate>
-
-                                <div class="d-flex flex-row align-items-center mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <div class="mb-2">
-                                        </div>
-                                        <div class="form-outline flex-fill mb-0">
-                                           
-                                            <label class="form-label" for="form3Example1c">Nome</label>
-                                            <input type="text" #input name="nome" required id="form3Example1c" class="form-control"[(ngModel)]="nome" />
-                                            <label class="form-label" for="form3Example1c">cognome</label>
-                                            <input type="text" name="cognome" required id="form3Example2c"  [(ngModel)]="cognome" class="form-control" />
-
-                                        </div>
-                                    </div>
+                            <!-- Messaggio di successo -->
+                            <div *ngIf="successMessage.length > 0" class="success-message">
+                                <p>{{ successMessage[0] }}</p>
+                            </div>
+                            <form [formGroup]="reactiveForm" (ngSubmit)="registerUser()" novalidate>
+                                <!-- ... altri campi del form ... -->
+                                <div class="form-group">
+                                    <label for="nome">Nome</label>
+                                    <input type="text" value="nome" formControlName="nome" class="form-control">
                                 </div>
 
-                                <div class="d-flex flex-row align-items-center mb-4">
-                                    <div class="d-flex">
-
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input type="email" name="email" [(ngModel)]="email"
-                                                id="form3Example3c" class="form-control" />
-                                            <label class="form-label" for="form3Example3c">Email</label>
-                                        </div>
-
-                                      
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-row align-items-center mb-4">
-                                    <div class="d-flex">
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input type="password" [(ngModel)]="password" name="password"  placeholder
-                                                id="form3Example4c" required class="form-control" />
-                                            <label class="form-label" for="form3Example4c">Password</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-row align-items-center mb-4">
-                                    <div class="d-flex">
-                                        <div class="d-flex">
-                                            <div class="form-outline flex-fill mb-0">
-                                                <input type="password" name="passwordCtrl" 
-                                                    id="form3Example5cd" class="form-control" />
-                                                <label class="form-label" for="form3Example4cd">Ripeti password</label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="cognome">Cognome</label>
+                                    <input type="text" value="cognome" formControlName="cognome" class="form-control">
                                 </div>
 
-                                <div class="form-check d-flex justify-content-center mb-2">
-                                    <input class="form-check-input" type="checkbox" value="" id="form2Example3c" />
-                                    <label class="form-check-label" for="form2Example3">
-                                        Ho capito e accetto <a href="#!">Termini di utilizzo</a>
-                                    </label>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" value="email" formControlName="email" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" value="password" formControlName="password"
+                                        class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="confirmPassword">Conferma Password</label>
+                                    <input type="password" value="confirmPassword" formControlName="confirmPassword"
+                                        class="form-control">
+
                                 </div>
 
                                 <div class="d-flex  mb-lg-4">
-                                    <input type="submit"  type="submit" (click)="registerUser()"   class="btn btn-primary ms-5 btn-lg">Registrati             
-                                                        </div>
-                                
-
+                                    <input type="submit" class="btn btn-primary ms-5 btn-lg" value="Registrati">
+                                </div>
                             </form>
-                          
                         </div>
-                        <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                            <img src="https://crowdinvestitalia.it/img/registrati.png" class="img-fluid w-100">
-
-                        </div>
+                    </div>
+                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                        <img src="https://crowdinvestitalia.it/img/registrati.png" class="img-fluid w-75">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
+</div>

@@ -18,4 +18,10 @@ navigateToRegistration() {
 navigateTologin() {
   this.router.navigate(['/login']);
 }
+navigateToPublic() {
+  this.router.navigate(['/public']);
+}
+navigateToHome() {
+  this.router.navigate(['']);
+}
 }

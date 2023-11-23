@@ -17,14 +17,12 @@ import { getAnalytics } from 'firebase/analytics';
 import { firebaseConfig } from './configurazioneFirebase';
 import { NavigationServiceService } from './navigation-service.service';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
-import { CartComponent } from './core/product/cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
     DashboardComponent,
-    CartComponent,
   ],
   imports: [
     BrowserModule,

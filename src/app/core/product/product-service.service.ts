@@ -21,11 +21,13 @@ export class ProductServiceService {
         const products = snapshot.docs.map(doc => doc.data() as prodotti);
         observer.next(products);
         observer.complete();
-      }).catch(error => {
-        observer.error(error);
-      });
+       }).catch(error => {
+    console.error('Errore durante il recupero dei prodotti da Firebase', error);
+    observer.error(error);
+  });
+     
     });
-  }
+  } 
 
 
 }

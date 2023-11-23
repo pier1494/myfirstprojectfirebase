@@ -5,6 +5,7 @@ import { PublicMainComponent } from './core/product/public-main/public-main.comp
 import { LoginComponent } from './core/auth/login/login.component';
 import { RegistrationComponent } from './core/auth/registration/registration.component';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
+import { CartComponent } from './core/product/cart/cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -13,6 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'carrello', component: CartComponent },
+
 ];
 
 @NgModule({

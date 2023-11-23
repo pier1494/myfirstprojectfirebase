@@ -24,4 +24,7 @@ navigateToPublic() {
 navigateToHome() {
   this.router.navigate(['']);
 }
+navigateToCart() {
+  this.router.navigate(['/carrello']);
+}
 }

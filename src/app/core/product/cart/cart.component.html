@@ -1,0 +1,116 @@
+<div class="container-fluid font">
+    <div class="row  d-flex justify-content-center">
+        <div class="col-md-10">
+            <div class="row mx-auto">
+                <div class="col-md-12">
+
+
+                    <h2 class="text-center mx-5 my-5 text-white">IL TUO CARRELLO</h2>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-5 text-center">
+
+                                <h4>ARTICOLO</h4>
+                            </div>
+                            <div class="col-md-1 text-center">
+                                <h4>Q</h4>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <h4> PREZZO-UNITARIO</h4>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <h4> SUBTOTALE</h4>
+                            </div>
+                            <div class="col-md-1 text-center">
+                                <h4> SVUOTA</h4>
+                            </div>
+                        </div>
+                        <hr>
+
+
+                        <div class="row" *ngFor="let item of cartItems$ | async">
+                            <div class="col-md-2">
+
+                                <img [src]="item.immagine" class="img-thumbnail">
+                            </div>
+                            <div class="col-md-3 ">
+                                <h4> {{ item.titolo }} {{ item.id}}</h4>
+                                <p> Disponibile</p>
+                                <p>idoneo alla spedizione gratuita</p>
+                                <input type="checkbox" class="form-check-input">
+                                <span>Includi confeszione regalo</span> <br>
+
+                            </div>
+
+                            <div class="col-md-2 d-flex justify-content-center  align-items-center">
+                                <h4>{{ item.prezzo }}</h4>
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-center align-items-center">
+                                <!-- <h4>{{ item.prezzo * item.quantita }}€</h4> -->
+                            </div>
+                            <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                <button class="btn btn-primary">
+                                    Elimina
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5 font">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-4 text-center">
+            <h2 class="text-white">RESOCONTO</h2>
+            <table class="table table-stripped table-bordered">
+                <tbody>
+                    <tr>
+                        <td> Costi di spedizione</td>
+                        <td>{{ 'costiSpedizione' }}€</td>
+                    </tr>
+                    <tr>
+                        <td>Somma totale senza IVA</td>
+                        <td>{{ 'sommaTotaleSenzaIva' }}€</td>
+                    </tr>
+                    <tr>
+                        <td>più 22 % IVA</td>
+                        <td>{{ 'iva' }}€</td>
+                    </tr>
+                    <tr>
+                        <td>Subtotale</td>
+                        <td>{{ 'subtotale' }}€</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a routerLink="/checkout" class="btn btn-primary">PROCEDI CON L'ACQUISTO</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container-fluid font">
+    <div class="row font">
+        <div class="col-md-12 text-center">
+            <h2 class="text-white">ACQUISTI CONSIGLIATI</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11">
+            <hr>
+        </div>
+        <div class="col-md-1">
+            <a href="riepilogoordini.html">More</a>
+        </div>
+
+
+    </div>
+</div>

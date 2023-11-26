@@ -15,7 +15,9 @@ export class RegistrationComponent {
   errorMessages: string[] = [];
   successMessage: string[] = [];
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router,
+   ) {
+  
     this.reactiveForm = this.fb.group({
       id: [''],
       nome: ['', Validators.required],

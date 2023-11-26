@@ -6,7 +6,7 @@
                     <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-6 col-xl-12 order-2 order-lg-1">
 
-                            <p class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrati</p>
+                            <p i18n class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrati</p>
                             <!-- Messaggio di errore -->
                             <div *ngIf="errorMessages.length > 0" class="error-messages">
                                 <p *ngFor="let errorMessage of errorMessages">{{ errorMessage }}</p>
@@ -19,29 +19,29 @@
                             <form [formGroup]="reactiveForm" (ngSubmit)="registerUser()" novalidate>
                                 <!-- ... altri campi del form ... -->
                                 <div class="form-group">
-                                    <label for="nome">Nome</label>
+                                    <label i18n for="nome">Nome</label>
                                     <input type="text" value="nome" formControlName="nome" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="cognome">Cognome</label>
+                                    <label i18n for="cognome">Cognome</label>
                                     <input type="text" value="cognome" formControlName="cognome" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="email">Email</label>
+                                    <label i18n for="email">Email</label>
                                     <input type="email" value="email" formControlName="email" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="password">Password</label>
+                                    <label i18n  for="password">Password</label>
                                     <input type="password" value="password" formControlName="password"
                                         class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="confirmPassword">Conferma Password</label>
-                                    <input type="password" value="confirmPassword" formControlName="confirmPassword"
+                                    <label i18n for="confirmPassword">Conferma Password</label>
+                                    <input type="password" i18n-value="confirmPassword" formControlName="confirmPassword"
                                         class="form-control">
 
                                 </div>

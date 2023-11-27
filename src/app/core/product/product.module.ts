@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PublicMainComponent } from './public-main/public-main.component';
-import { LoginComponent } from '../auth/login/login.component';
-import { AppModule } from 'src/app/app.module';
 import { ProductServiceService } from './product-service.service';
 import { CartComponent } from './cart/cart.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -17,6 +16,7 @@ import { CartComponent } from './cart/cart.component';
   ],
   imports: [
     CommonModule,
+    TranslateModule
    
   ],
   exports:[
@@ -27,4 +27,4 @@ import { CartComponent } from './cart/cart.component';
     ProductServiceService,
   ],
 })
-export class PublicModule { }
+export class ProductModule { }

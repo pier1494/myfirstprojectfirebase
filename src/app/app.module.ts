@@ -3,10 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './core/topbar/topbar.component';
-import { PublicModule } from './core/product/product.module';
 import { PrivateModule } from './core/private/private.module';
 import { AuthModule } from './core/auth/auth.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 // Import Firebase modules
 import { Firestore, getFirestore } from 'firebase/firestore';
@@ -17,6 +16,9 @@ import { getAnalytics } from 'firebase/analytics';
 import { firebaseConfig } from './configurazioneFirebase';
 import { NavigationServiceService } from './navigation-service.service';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
+import { TranslateLoader, TranslateModule, TranslatePipe } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ProductModule } from './core/product/product.module';
 
 @NgModule({
   declarations: [
@@ -27,13 +29,22 @@ import { DashboardComponent } from './core/dashboard/dashboard.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PublicModule,
     PrivateModule,
     AuthModule,
+    ProductModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+      defaultLanguage: 'it',
+    })
+    
   ],
   exports: [
-    PublicModule,
+    ProductModule,
       
 
   ],
@@ -45,3 +56,7 @@ import { DashboardComponent } from './core/dashboard/dashboard.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}

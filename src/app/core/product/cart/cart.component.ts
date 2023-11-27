@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartservicesService } from '../cartservices.service';
 import { Observable } from 'rxjs';
 import { ItemCarrello } from '../interfaceproduct/dbmodel';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cart',
@@ -15,9 +16,17 @@ export class CartComponent implements OnInit {
   iva = 0;
   subtotale = 0;
 
-  constructor(private cartServices: CartservicesService) {}
-
-  ngOnInit(): void {
+  constructor(private cartServices: CartservicesService,
+    private translate: TranslateService) {
+    // translate.setDefaultLang('en');
+    // translate.use('en');
+  }
+    
+  cambiaLingua(language: string): void {
+      this.translate.use(language);
+    }
+ 
+    ngOnInit(): void {
     this.cartItems$ = this.cartServices.getCartItemsObservable();
     this.calculateTotals();
   }

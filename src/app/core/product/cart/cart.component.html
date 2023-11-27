@@ -5,25 +5,25 @@
                 <div class="col-md-12">
 
 
-                    <h2 class="text-center mx-5 my-5 text-white">IL TUO CARRELLO</h2>
+                    <h2 class="text-center mx-5 my-5 text-white">{{'IL TUO CARRELLO'| translate}}</h2>
 
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-5 text-center">
 
-                                <h4>ARTICOLO</h4>
+                                <h4>{{'ARTICOLO'| translate}}</h4>
                             </div>
                             <div class="col-md-1 text-center">
                                 <h4>Q</h4>
                             </div>
                             <div class="col-md-2 text-center">
-                                <h4> PREZZO-UNITARIO</h4>
+                                <h4> {{'PREZZO UNITARIO' | translate}}</h4>
                             </div>
                             <div class="col-md-2 text-center">
-                                <h4> SUBTOTALE</h4>
+                                <h4> {{'SUBTOTALE'| translate}}</h4>
                             </div>
                             <div class="col-md-1 text-center">
-                                <h4> SVUOTA</h4>
+                                <h4>{{'SVUOTA'| translate}}</h4>
                             </div>
                         </div>
                         <hr>
@@ -39,7 +39,7 @@
                                 <p> Disponibile</p>
                                 <p>idoneo alla spedizione gratuita</p>
                                 <input type="checkbox" class="form-check-input">
-                                <span>Includi confeszione regalo</span> <br>
+                                <span>{{'Includi confeszione regalo' | translate}}</span> <br>
 
                             </div>
 
@@ -51,7 +51,7 @@
                             </div>
                             <div class="col-md-1 d-flex justify-content-center align-items-center">
                                 <button class="btn btn-primary">
-                                    Elimina
+                                  {{'  Elimina' | translate}}
                                 </button>
 
                             </div>
@@ -67,28 +67,38 @@
 <div class="container-fluid py-5 font">
     <div class="row align-items-center justify-content-center">
         <div class="col-4 text-center">
-            <h2 class="text-white">RESOCONTO</h2>
+            <h2 class="text-white">{{'RESOCONTO' | translate}}</h2>
             <table class="table table-stripped table-bordered">
                 <tbody>
                     <tr>
-                        <td> Costi di spedizione</td>
-                        <td>{{ 'costiSpedizione' }}€</td>
+                        <td> {{'Costi di spedizione' | translate}}</td>
                     </tr>
                     <tr>
-                        <td>Somma totale senza IVA</td>
+                        <td> {{ 'Somma totale senza IVA' | translate }}</td>
                         <td>{{ 'sommaTotaleSenzaIva' }}€</td>
                     </tr>
                     <tr>
-                        <td>più 22 % IVA</td>
+                        <td>{{'più 22 % IVA' | translate}}</td>
                         <td>{{ 'iva' }}€</td>
                     </tr>
                     <tr>
-                        <td>Subtotale</td>
+                        <td>{{'Subtotale' | translate}}</td>
                         <td>{{ 'subtotale' }}€</td>
                     </tr>
                 </tbody>
             </table>
-            <a routerLink="/checkout" class="btn btn-primary">PROCEDI CON L'ACQUISTO</a>
+            <div>
+                <div>
+
+                  </div>
+                 <!-- <h1>{{ 'test.titolo' | translate }}</h1>
+                <p>{{ 'test.testo' | translate }}</p> 
+                 <p [translate]="'questo è un carrello'"></p>  -->
+                 <p>{{ 'questo è un carrello' | translate }}</p>
+                                 <button (click)="cambiaLingua('it')">it</button>
+                <button (click)="cambiaLingua('en')">en</button>
+            </div>
+            <a routerLink="/checkout" class="btn btn-primary">{{ 'PROCEDI CON ACQUISTO' | translate }}</a>
         </div>
     </div>
 </div>
@@ -100,7 +110,7 @@
 <div class="container-fluid font">
     <div class="row font">
         <div class="col-md-12 text-center">
-            <h2 class="text-white">ACQUISTI CONSIGLIATI</h2>
+            <h2 class="text-white">{{'ACQUISTI CONSIGLIATI' | translate}}</h2>
         </div>
     </div>
     <div class="row">

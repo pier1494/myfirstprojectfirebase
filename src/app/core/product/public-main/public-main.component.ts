@@ -23,7 +23,7 @@ export class PublicMainComponent implements OnInit {
       this.products$ = this.productService.getProducts();
    }
    addToCart(product: prodotti): void {
-      this.cartServices.addToCart(product);
+      this.cartServices.updateCarrello(product);
       console.log('Prodotto aggiunto al carrello:', product);
    }
 }

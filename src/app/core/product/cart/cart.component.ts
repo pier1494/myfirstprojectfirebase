@@ -37,8 +37,10 @@ export class CartComponent implements OnInit {
   }
 
   deleteItem(item: ItemCarrello): void {
+      this.cartServices.deleteItem(item);
+      this.calculateTotals();
     // Aggiungi la logica per eliminare un elemento dal carrello se necessario
-    // this.cartServices.deleteItem(item);
+    // this.cartServices.(item);
     // this.calculateTotals();
   }
 

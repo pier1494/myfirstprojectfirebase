@@ -13,7 +13,7 @@ export class CartservicesService {
 
   constructor() {}
 
-  addToCart(product: prodotti | ItemCarrello): void {
+  private addToCart(product: prodotti | ItemCarrello): void {
     const itemCarrello: ItemCarrello = {
       id: product.id,
       immagine: product.immagine,
@@ -46,4 +46,13 @@ export class CartservicesService {
     }
     this.cartSubject.next([...this.cartItems]);
   }
+  deleteItem(item: ItemCarrello): void {
+    const posizioneProdotto = this.cartItems.indexOf(item);
+  
+    // verifica che ci sia un prodotto da eliminare
+    if (posizioneProdotto > -1) {
+      this.cartItems.splice(posizioneProdotto, 1);
+      this.cartSubject.next([...this.cartItems]); // Notifica gli osservatori del cambiamento nel carrello
+    }
+}
 }

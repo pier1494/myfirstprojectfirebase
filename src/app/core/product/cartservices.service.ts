@@ -8,6 +8,7 @@ import { ItemCarrello, prodotti } from './interfaceproduct/dbmodel';
 export class CartservicesService {
   private cartItems: ItemCarrello[] = [];
   private cartSubject = new BehaviorSubject<ItemCarrello[]>([]);
+  private subtotale: number = 0;
 
   cart$ = this.cartSubject.asObservable();
 
@@ -55,4 +56,19 @@ export class CartservicesService {
       this.cartSubject.next([...this.cartItems]); // Notifica gli osservatori del cambiamento nel carrello
     }
 }
+setSubtotale(subtotale: number) {
+  this.subtotale = subtotale;
+}
+getSubtotale(): number {
+  return this.subtotale;
+}
+
+// creiamo un BehaviorSubject 
+data$: BehaviorSubject<number> = new BehaviorSubject<number>(-1);
+
+// emettere valori nel subject
+update(value: number) { 
+this.data$.next(value);
+}
+
 }

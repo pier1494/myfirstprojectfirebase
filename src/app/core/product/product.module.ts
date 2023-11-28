@@ -4,6 +4,7 @@ import { PublicMainComponent } from './public-main/public-main.component';
 import { ProductServiceService } from './product-service.service';
 import { CartComponent } from './cart/cart.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +17,9 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   imports: [
     CommonModule,
-    TranslateModule
+    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule
    
   ],
   exports:[

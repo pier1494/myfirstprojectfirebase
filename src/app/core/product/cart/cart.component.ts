@@ -15,20 +15,34 @@ export class CartComponent implements OnInit {
   sommaTotaleSenzaIva = 0;
   iva = 0;
   subtotale = 0;
-
+count = 0;
   constructor(private cartServices: CartservicesService,
     private translate: TranslateService) {
     // translate.setDefaultLang('en');
     // translate.use('en');
   }
     
+  toggleLanguage(): void {
+    const currentLanguage = this.translate.currentLang;
+
+    // Decide quale lingua attivare in base allo stato corrente del toggle
+    const newLanguage = currentLanguage === 'en' ? 'it' : 'en';
+
+    this.cambiaLingua(newLanguage);
+  }
+
   cambiaLingua(language: string): void {
-      this.translate.use(language);
-    }
- 
+    this.translate.use(language);
+  }
+  
     ngOnInit(): void {
     this.cartItems$ = this.cartServices.getCartItemsObservable();
     this.calculateTotals();
+  }
+  
+  add() {
+    this.cartServices.update(++this.count);
+  
   }
 
   updateQuantity(item: ItemCarrello): void {
@@ -50,5 +64,14 @@ export class CartComponent implements OnInit {
     this.sommaTotaleSenzaIva = cartItems.reduce((acc, item) => acc + (parseFloat(item.prezzo) * item.quantita), 0);
     this.iva = this.sommaTotaleSenzaIva * 0.22;  // 22% IVA
     this.subtotale = this.sommaTotaleSenzaIva + this.iva;
+    this.sommaTotaleSenzaIva = Number(this.sommaTotaleSenzaIva.toFixed(2));
+    this.iva = Number(this.iva.toFixed(2));
+    this.subtotale = Number(this.subtotale.toFixed(2));
+    this.cartServices.setSubtotale(this.subtotale); // Imposta il subtotale nel servizio condiviso
   }
+  updateSubtotal() {
+    this.calculateTotals();
+  
+}
+
 }

@@ -42,16 +42,22 @@
                                 <span>{{'Includi confeszione regalo' | translate}}</span> <br>
 
                             </div>
+                            <div class="col-md-1 text-center d-flex justify-content-center align-items-center">
 
+                                <input min="1" [(ngModel)]="item.quantita" name="quantity" type="number" (click)="add()"
+                                    class="w-75" (ngModelChange)="updateSubtotal()">
+                            </div>
                             <div class="col-md-2 d-flex justify-content-center  align-items-center">
                                 <h4>{{ item.prezzo }}</h4>
                             </div>
                             <div class="col-md-2 d-flex justify-content-center align-items-center">
-                                <!-- <h4>{{ item.prezzo * item.quantita }}€</h4> -->
+                                <!-- <h4>{{item.prezzo * quantita }}€</h4> -->
                             </div>
+
+
                             <div class="col-md-1 d-flex justify-content-center align-items-center">
                                 <button class="btn btn-primary" (click)="deleteItem(item)">
-                                  {{'  Elimina' | translate}}
+                                    {{' Elimina' | translate}}
                                 </button>
 
                             </div>
@@ -89,38 +95,47 @@
             </table>
             <div>
                 <div>
+                    <!-- <div class="switch">
+                        <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+                        <label for="language-toggle"></label>
+                        <p>{{ 'questo è un carrello' | translate }}</p>
+                        <span class="span" (click)="cambiaLingua('it')">it</span>
+                        <span (click)="cambiaLingua('en')" class="span">en</span>
+                    </div> -->
 
-                  </div>
-                 <!-- <h1>{{ 'test.titolo' | translate }}</h1>
-                <p>{{ 'test.testo' | translate }}</p> 
-                 <p [translate]="'questo è un carrello'"></p>  -->
-                 <p>{{ 'questo è un carrello' | translate }}</p>
-                                 <button (click)="cambiaLingua('it')">it</button>
-                <button (click)="cambiaLingua('en')">en</button>
+                    <div class="switch">
+                        <input id="language-toggle" (click)="toggleLanguage()"
+                            class="check-toggle check-toggle-round-flat" type="checkbox">
+                        <label for="language-toggle"></label>
+
+                        <span class="on">IT</span>
+                        <span class="off">EN</span>
+                    </div>
+
+                </div>
+                <a routerLink="/checkout" class="btn btn-primary">{{ 'PROCEDI CON ACQUISTO' | translate }}</a>
             </div>
-            <a routerLink="/checkout" class="btn btn-primary">{{ 'PROCEDI CON ACQUISTO' | translate }}</a>
         </div>
     </div>
-</div>
 
 
 
 
 
-<div class="container-fluid font">
-    <div class="row font">
-        <div class="col-md-12 text-center">
-            <h2 class="text-white">{{'ACQUISTI CONSIGLIATI' | translate}}</h2>
+    <div class="container-fluid font">
+        <div class="row font">
+            <div class="col-md-12 text-center">
+                <h2 class="text-white">{{'ACQUISTI CONSIGLIATI' | translate}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-11">
+                <hr>
+            </div>
+            <div class="col-md-1">
+                <a href="riepilogoordini.html">More</a>
+            </div>
+
+
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-11">
-            <hr>
-        </div>
-        <div class="col-md-1">
-            <a href="riepilogoordini.html">More</a>
-        </div>
-
-
-    </div>
-</div>

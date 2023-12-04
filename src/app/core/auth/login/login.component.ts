@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, UserCredential } from "firebase/auth";
 import { getDatabase, ref, get } from "firebase/database";
 import { NavigationServiceService } from 'src/app/navigation-service.service';
+import { LoaderService } from 'src/app/loader.service';
 
 
 @Component({
@@ -12,8 +13,11 @@ import { NavigationServiceService } from 'src/app/navigation-service.service';
 })
 export class LoginComponent {
   constructor(private router: Router,
-    private navigationService: NavigationServiceService
+    private navigationService: NavigationServiceService,
+    private LoaderService: LoaderService
+
   ) { }
+
   email: string = '';
   password: string = '';
   errorMessage: string = '';

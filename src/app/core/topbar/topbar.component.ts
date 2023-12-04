@@ -1,5 +1,6 @@
 import { Component, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavigationServiceService } from 'src/app/navigation-service.service';
 
 @Component({
   selector: 'app-topbar',
@@ -8,23 +9,25 @@ import { Router } from '@angular/router';
 })
 
 export class TopbarComponent {
-constructor(private router: Router){
-  
-}
-navigateToRegistration() {
-  this.router.navigate(['/registration']);
+constructor(private router: Router,
+  private NavigationServiceService: NavigationServiceService,){}
+  navigateToPrivateMain() {
+    this.router.navigate(['/private']);
+  }
+  navigateToRegistration() {
+  this.NavigationServiceService.navigateToRegistration();
   console.log('goRegistration')
 }
 navigateTologin() {
-  this.router.navigate(['/login']);
+  this.NavigationServiceService.navigateTologin();
 }
 navigateToPublic() {
-  this.router.navigate(['/public']);
+  this.NavigationServiceService.navigateToPublic();
 }
 navigateToHome() {
-  this.router.navigate(['']);
+  this.NavigationServiceService.navigateToHome();
 }
 navigateToCart() {
-  this.router.navigate(['/carrello']);
+  this.NavigationServiceService.navigateToCart();
 }
 }

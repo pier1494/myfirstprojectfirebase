@@ -7,9 +7,27 @@ import { Router } from '@angular/router';
 })
 export class NavigationServiceService {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    ) {}
+
 
   navigateToPrivateMain() {
     this.router.navigate(['/private']);
   }
+  navigateToRegistration() {
+  this.router.navigate(['/auth/registration']);
+  console.log('goRegistration')
+}
+navigateTologin() {
+  this.router.navigate(['/auth']);
+}
+navigateToPublic() {
+  this.router.navigate(['/public']);
+}
+navigateToHome() {
+  this.router.navigate(['']);
+}
+navigateToCart() {
+  this.router.navigate(['/carrello']);
+}
 }

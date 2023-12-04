@@ -5,12 +5,15 @@
     <p>Rating: {{ product.rating }}</p>
     Altri dettagli del prodotto 
   </div> -->
+       <!-- <app-spinner></app-spinner> -->
 
-<div class="container-fluid font">
+<!-- <app-spinner *ngIf="LoaderService.isLoading | async"></app-spinner> -->
+  <div class="container-fluid font">
   <div class="row">
 
     <div class="col-md-12 d-flex flex-wrap">
       <div class="product-grid my-3 mx-2" style="width: 20em" *ngFor="let product of products$ |async">
+       
         <div class="product-image d-flex justify-content-center zoombanner">
          <img [src]="product.immagine">
         </div>

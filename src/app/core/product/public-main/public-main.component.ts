@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { prodotti } from '../interfaceproduct/dbmodel';
 import { HttpClient } from '@angular/common/http';
 import { CartservicesService } from '../cartservices.service';
+import { LoaderService } from '../../../loader.service';
 
 @Component({
    selector: 'app-public-main',
@@ -15,6 +16,7 @@ export class PublicMainComponent implements OnInit {
    products$: Observable<prodotti[]> = new Observable<prodotti[]>(); // Inizializza la variabile qui
 
    constructor(private productService: ProductServiceService,
+      public LoaderService:LoaderService,
    private http: HttpClient,
    private cartServices: CartservicesService ) { }
    ;

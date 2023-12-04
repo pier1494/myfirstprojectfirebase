@@ -16,6 +16,7 @@ export class RegistrationComponent {
   successMessage: string[] = [];
 
   constructor(private fb: FormBuilder, private router: Router,
+    private LoaderService: LoaderService
    ) {
   
     this.reactiveForm = this.fb.group({
@@ -97,6 +98,7 @@ export class RegistrationComponent {
 // import { getAuth, createUserWithEmailAndPassword, UserCredential } from "firebase/auth";
 // import { collection, addDoc } from "firebase/firestore";
 // import { db } from "src/app/configurazioneFirebase";
+import { LoaderService } from 'src/app/loader.service';
 
 // @Component({
 //   selector: 'app-registration',

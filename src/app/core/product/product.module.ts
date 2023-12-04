@@ -5,6 +5,9 @@ import { ProductServiceService } from './product-service.service';
 import { CartComponent } from './cart/cart.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoaderService } from 'src/app/loader.service';
+
+import { SharedmoudleModule } from 'src/app/sharedmoudle/sharedmoudle.module';
 
 
 
@@ -12,15 +15,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     PublicMainComponent,
     CartComponent,
-
+    
     
   ],
   imports: [
     CommonModule,
     TranslateModule,
     FormsModule,
-    ReactiveFormsModule
-   
+    ReactiveFormsModule,
+    SharedmoudleModule
   ],
   exports:[
     PublicMainComponent,
@@ -28,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     ProductServiceService,
+    LoaderService
   ],
 })
 export class ProductModule { }

@@ -28,8 +28,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  import { RecensioniModule } from './features/recensioni/recensioni.module';
-exports: [RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule {
 

@@ -12,6 +12,13 @@ const routes: Routes = [
       return import('./core/auth/auth.module').then(m => m.AuthModule);
     }
   },
+  {
+    path: 'recensioni',
+    loadChildren: () => {
+      console.log("LOADING RECENSIONI");
+      return import('./features/recensioni/recensioni.module').then(m => m.RecensioniModule);
+    }
+  },
   
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
@@ -21,7 +28,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  import { RecensioniModule } from './features/recensioni/recensioni.module';
+exports: [RouterModule]
 })
 export class AppRoutingModule {
 

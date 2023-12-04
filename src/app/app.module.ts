@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoaderService } from './loader.service';
 import { SharedmoudleModule } from './sharedmoudle/sharedmoudle.module';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { StoricoOrdiniModule } from './features/storico-ordini/storico-ordini.module';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ SharedmoudleModule,
   ],
   exports: [
     ProductModule,
-      SharedmoudleModule
+      SharedmoudleModule,
 
   ],
   providers: [

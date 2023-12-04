@@ -12,6 +12,13 @@ const routes: Routes = [
       return import('./core/auth/auth.module').then(m => m.AuthModule);
     }
   },
+  {
+    path: 'storico-ordini',
+    loadChildren: () => {
+      console.log("LOADING STORICO-ORDINI");
+      return import('./features/storico-ordini/storico-ordini.module').then(m => m.StoricoOrdiniModule);
+    }
+  },
   
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },

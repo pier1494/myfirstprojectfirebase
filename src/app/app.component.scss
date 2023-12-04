@@ -7,19 +7,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
   .spacer {
     flex: 1;
   }
@@ -58,7 +45,7 @@
 
   .content {
     display: flex;
-    margin: 82px auto 32px;
+    margin: 10px auto 32px;
     padding: 0 16px;
     max-width: 960px;
     flex-direction: column;
@@ -153,16 +140,6 @@
     z-index: -10;
   }
 
-  a,
-  a:visited,
-  a:hover {
-    color: #1976d2;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #125699;
-  }
 
   .terminal {
     position: relative;

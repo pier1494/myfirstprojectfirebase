@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StoricoOrdiniComponent } from './storico-ordini/storico-ordini.component';
+import { StoricoOrdiniComponent } from './storico-ordini.component';
+
 
 
 

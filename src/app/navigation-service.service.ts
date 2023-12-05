@@ -12,7 +12,7 @@ export class NavigationServiceService {
 
 
   navigateToPrivateMain() {
-    this.router.navigate(['/private']);
+    this.router.navigate(['/auth/private']);
   }
   navigateToRegistration() {
   this.router.navigate(['/auth/registration']);

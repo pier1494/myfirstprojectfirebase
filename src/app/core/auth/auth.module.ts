@@ -8,6 +8,7 @@ import { PrivateMainComponent } from './private-main/private-main.component';
 import { NavigationServiceService } from 'src/app/navigation-service.service';
 import { AuthRoutingModule } from './auth-routing-module';
 import { LoaderService } from 'src/app/loader.service';
+import { AuthService } from './authservice';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { LoaderService } from 'src/app/loader.service';
 
   providers: [
     NavigationServiceService,
-    LoaderService
+    LoaderService,
+    AuthService
   ],
 })
 @Injectable({

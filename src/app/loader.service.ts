@@ -6,21 +6,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LoaderService {
 
-//   private loading: boolean = false;
-
-//   constructor() { }
-
-//   setLoading(loading: boolean) {
-//     console.log('Show loader');
-//     this.loading = loading;
-//   }
-
-//   getLoading(): boolean {
-//     console.log('close loader');
-//     return this.loading;
-//   }
-// }
-
 
 private apiCount = 0;
 private isLoadingSubject = new BehaviorSubject<boolean>(false);

@@ -24,6 +24,7 @@ import { LoaderService } from './loader.service';
 import { SharedmoudleModule } from './sharedmoudle/sharedmoudle.module';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { StoricoOrdiniModule } from './features/storico-ordini/storico-ordini.module';
+import { AuthModule } from './core/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { StoricoOrdiniModule } from './features/storico-ordini/storico-ordini.mo
     AppRoutingModule,
 SharedmoudleModule,
     ProductModule,
+    AuthModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -51,6 +53,7 @@ SharedmoudleModule,
   exports: [
     ProductModule,
       SharedmoudleModule,
+      AuthModule
 
   ],
   providers: [

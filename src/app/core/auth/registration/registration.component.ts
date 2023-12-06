@@ -16,8 +16,8 @@ export class RegistrationComponent {
   successMessage: string[] = [];
 
   constructor(private fb: FormBuilder, private router: Router,
-    private LoaderService: LoaderService
-   ) {
+    private  loading: LoaderService,
+    private NavigationServiceService: NavigationServiceService   ) {
   
     this.reactiveForm = this.fb.group({
       id: [''],
@@ -55,6 +55,7 @@ export class RegistrationComponent {
     this.validatePassword();
 
     if (this.reactiveForm.valid && this.errorMessages.length === 0) {
+
       const auth = getAuth();
       const email = this.reactiveForm.value.email;
       const password = this.reactiveForm.value.password;
@@ -65,7 +66,7 @@ export class RegistrationComponent {
         this.successMessage.push('Registrazione avvenuta con successo, ti stiamo indirizzando nella pagina di login');
 
         setTimeout(() => {
-          this.router.navigate(['/login']);
+          this.NavigationServiceService.navigateTologin();
         }, 2000);
 
         const docRef = await addDoc(collection(db, 'users'), {
@@ -86,6 +87,7 @@ export class RegistrationComponent {
           console.error('Errore durante la registrazione:', e);
           this.errorMessages.push('Errore durante la registrazione. Riprova più tardi.');
         }
+
       }
     }
   }
@@ -99,6 +101,7 @@ export class RegistrationComponent {
 // import { collection, addDoc } from "firebase/firestore";
 // import { db } from "src/app/configurazioneFirebase";
 import { LoaderService } from 'src/app/loader.service';
+import { NavigationServiceService } from './../../../navigation-service.service';
 
 // @Component({
 //   selector: 'app-registration',

@@ -9,13 +9,17 @@ import { LoaderService } from 'src/app/loader.service';
   
 })
 export class SpinnerComponent {
-  constructor(public  loader: LoaderService) { }
+  constructor(public  loader: LoaderService) { 
+     // this.loader.showLoader();
+  }
+
+
+
   // get isLoading(): boolean {
   //   return this.loaderService.getLoading();
   // }
   
 }
-
 
 // import { Component, ViewEncapsulation } from '@angular/core';
 // import { LoadingService } from './../../../loading.service';

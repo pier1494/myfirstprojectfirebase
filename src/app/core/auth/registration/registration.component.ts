@@ -4,6 +4,9 @@ import { Router } from "@angular/router";
 import { getAuth, createUserWithEmailAndPassword, UserCredential } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "src/app/configurazioneFirebase";
+import { LoaderService } from 'src/app/loader.service';
+import { NavigationServiceService } from './../../../navigation-service.service';
+
 
 @Component({
   selector: 'app-registration',
@@ -53,6 +56,7 @@ export class RegistrationComponent {
     this.successMessage = [];
     this.errorMessages = [];
     this.validatePassword();
+    this.loading.showLoader();
 
     if (this.reactiveForm.valid && this.errorMessages.length === 0) {
 
@@ -75,7 +79,7 @@ export class RegistrationComponent {
           email: email,
           password: password,
           id: user.uid
-        });
+        }); this.loading.hideLoader();
 
         console.log('Document written with ID: ', docRef.id);
       } catch (e: any) {
@@ -86,12 +90,14 @@ export class RegistrationComponent {
         } else {
           console.error('Errore durante la registrazione:', e);
           this.errorMessages.push('Errore durante la registrazione. Riprova più tardi.');
-        }
+        } 
+       
 
-      }
+        }
     }
   }
 }
+
 
 
 // import { Component, ElementRef, ViewChild } from "@angular/core";
@@ -100,8 +106,6 @@ export class RegistrationComponent {
 // import { getAuth, createUserWithEmailAndPassword, UserCredential } from "firebase/auth";
 // import { collection, addDoc } from "firebase/firestore";
 // import { db } from "src/app/configurazioneFirebase";
-import { LoaderService } from 'src/app/loader.service';
-import { NavigationServiceService } from './../../../navigation-service.service';
 
 // @Component({
 //   selector: 'app-registration',

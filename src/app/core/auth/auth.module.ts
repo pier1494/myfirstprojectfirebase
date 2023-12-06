@@ -9,6 +9,7 @@ import { NavigationServiceService } from 'src/app/navigation-service.service';
 import { AuthRoutingModule } from './auth-routing-module';
 import { LoaderService } from 'src/app/loader.service';
 import { AuthService } from './authservice';
+import { SharedmoudleModule } from 'src/app/sharedmoudle/sharedmoudle.module';
 
 
 @NgModule({
@@ -21,8 +22,8 @@ import { AuthService } from './authservice';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    AuthRoutingModule
-
+    AuthRoutingModule,
+SharedmoudleModule
   ],
   exports: [
     LoginComponent,

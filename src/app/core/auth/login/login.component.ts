@@ -27,7 +27,7 @@ export class LoginComponent {
         this.errorMessage = '';
         this.successMessage = 'Accesso riuscito! Benvenuto di nuovo!';
         // Altre operazioni...
-        this.authService.navigateToPrivateMain();
+        // this.authService.navigateToPrivateMain();
 
       })
       .catch((error) => {

@@ -30,4 +30,10 @@ navigateToHome() {
 navigateToCart() {
   this.NavigationServiceService.navigateToCart();
 }
+navigateToStoricoordini() {
+  this.NavigationServiceService.navigateToStoricoordini();
+}
+navigateToRecensioni() {
+  this.NavigationServiceService.navigateToRecensioni();
+}
 }

@@ -25,6 +25,7 @@ import { SharedmoudleModule } from './sharedmoudle/sharedmoudle.module';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { StoricoOrdiniModule } from './features/storico-ordini/storico-ordini.module';
 import { AuthModule } from './core/auth/auth.module';
+import { RecensioniModule } from './features/recensioni/recensioni.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ SharedmoudleModule,
     ProductModule,
     AuthModule,
     HttpClientModule,
+    RecensioniModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

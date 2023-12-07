@@ -71,7 +71,7 @@ export class RegistrationComponent {
 
         setTimeout(() => {
           this.NavigationServiceService.navigateTologin();
-        }, 2000);
+        }, 1000);
 
         const docRef = await addDoc(collection(db, 'users'), {
           nome: this.reactiveForm.value.nome,

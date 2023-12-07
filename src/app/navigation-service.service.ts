@@ -30,4 +30,10 @@ navigateToHome() {
 navigateToCart() {
   this.router.navigate(['/carrello']);
 }
+navigateToRecensioni() {
+  this.router.navigate(['recensioni/recensioni']);
+}
+navigateToStoricoordini() {
+  this.router.navigate(['/storico-ordini/storicoordini']);
+}
 }

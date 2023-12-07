@@ -10,7 +10,7 @@ import { LoaderService } from 'src/app/loader.service';
 })
 export class SpinnerComponent {
   constructor(public  loader: LoaderService) { 
-     // this.loader.showLoader();
+      // this.loader.showLoader();
   }
 
 

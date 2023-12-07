@@ -1,16 +1,18 @@
 import { RouterModule, Routes } from '@angular/router';
 
 import { NgModule } from '@angular/core';
-import { StoricoOrdiniComponent } from './storico-ordini.component';
+import { RecensioniComponent } from './recensioni.component';
 
 const routes: Routes = [
-    { path: 'storicoordini', component: StoricoOrdiniComponent },
+    { path: 'recensioni', component: RecensioniComponent },
+
+   
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class StoricoOrdiniRoutingModule {
+export class RecensioniRoutingmodule {
 
 }

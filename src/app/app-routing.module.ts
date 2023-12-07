@@ -19,6 +19,14 @@ const routes: Routes = [
       return import('./features/storico-ordini/storico-ordini.module').then(m => m.StoricoOrdiniModule);
     }
   },
+    {path: 'recensioni',
+    loadChildren: () => {
+      console.log("LOADING recensioni");
+      return import('./features/recensioni/recensioni.module').then(m => m.RecensioniModule);
+    }
+  },
+
+
   
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },

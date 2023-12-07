@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserCredential, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { NavigationServiceService } from "src/app/navigation-service.service";
+import { LoaderService } from './../../loader.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class AuthService {
   errorMessage: string = '';
   successMessage: string = '';
 
-  constructor(private navigationService: NavigationServiceService) { }
+  constructor(private navigationService: NavigationServiceService,
+    private loading: LoaderService) { }
 
   // signInUser(email: string, password: string): Promise<void> {
   //   const auth = getAuth();
@@ -43,12 +45,34 @@ export class AuthService {
 
   //       throw errorMessage; // Lanciare l'errore per essere gestito dal componente
   //     });}}
-  signInUser(email: string, password: string): Promise<UserCredential> {
-    const auth = getAuth();
+  
+  
+  
+  
+  async signInUser(email: string, password: string): Promise<UserCredential> {
+    try {
+      this.loading.showLoader();
+      const auth = getAuth();
+      return await signInWithEmailAndPassword(auth, email, password);
+    }
+     finally {
+      // setTimeout(() =>       
+      //  2000);
+      this.loading.hideLoader();
+    }
+  }
+  
+  
+  
+  // signInUser(email: string, password: string): Promise<UserCredential> {
+  //   this.loading.showLoader();
+  //   const auth = getAuth();
 
-    return signInWithEmailAndPassword(auth, email, password);
-  }
-  navigateToPrivateMain(): void {
-    this.navigationService.navigateToPrivateMain();
-  }
+  //   return signInWithEmailAndPassword(auth, email, password);
+  // }
+  
+
+  // navigateToPrivateMain(): void {
+  //   this.navigationService.navigateToPrivateMain();
+  // }
 }

@@ -1,3 +1,11 @@
-<p>recensioni works!</p>
-<div class="div"><p>storico-ordini works!</p>
+<div class="mt-5">
+    <p>recensioni</p>
+
+
+
 </div>
+
+
+<div *ngFor="let review of reviews | async">
+    <p>{{review.rating}}</p>
+  </div>

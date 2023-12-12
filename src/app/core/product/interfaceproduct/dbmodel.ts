@@ -14,3 +14,11 @@ export interface prodotti {
     prezzo: string;
     quantita: number;
 }
+
+export interface recensioni {
+  data_creazione: string;
+  rating: Number;
+  testo_recensione: string;
+  id_product: string;
+  id_utente: string;
+}

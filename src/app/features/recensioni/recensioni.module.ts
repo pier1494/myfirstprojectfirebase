@@ -5,6 +5,7 @@ import { NavigationServiceService } from 'src/app/navigation-service.service';
 import { LoaderService } from 'src/app/loader.service';
 import { AuthService } from 'src/app/core/auth/authservice';
 import { RecensioniRoutingmodule } from './recensioniroutingmodule';
+import { RecensioniService } from './recensioniService';
 
 
 
@@ -23,7 +24,8 @@ import { RecensioniRoutingmodule } from './recensioniroutingmodule';
   providers : [ 
     NavigationServiceService,
     LoaderService,
-    AuthService
+    AuthService,
+RecensioniService
   ]
 })
   @Injectable({

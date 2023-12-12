@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, UserCredential } from "firebase/auth";
-import { getDatabase, ref, get } from "firebase/database";
-import { NavigationServiceService } from 'src/app/navigation-service.service';
-import { LoaderService } from 'src/app/loader.service';
-
+import { AuthService } from './../authservice';
 
 @Component({
   selector: 'app-login',
@@ -12,48 +8,84 @@ import { LoaderService } from 'src/app/loader.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private router: Router,
-    private navigationService: NavigationServiceService,
-    private LoaderService: LoaderService
-
-  ) { }
-
   email: string = '';
   password: string = '';
   errorMessage: string = '';
   successMessage: string = '';
 
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private NavigationServiceService: NavigationServiceService
+
+  ) {}
+
   signInUser() {
-    const auth = getAuth();
+    this.authService.signInUser(this.email, this.password)
+      .then((userCredential) => {
+        // Operazioni da eseguire in caso di successo
+        this.errorMessage = '';
+        this.successMessage = 'Accesso riuscito! Benvenuto di nuovo!';
+        // Altre operazioni...
+        // this.authService.navigateToPrivateMain();
 
-    signInWithEmailAndPassword(auth, this.email, this.password)
-      .then(async (userCredential: UserCredential) => {
-        // Utente autenticato con successo
-        const user = userCredential.user;
-        // await this.verifyUserInFirebaseDatabase(user.uid)
-        // Ora puoi verificare i dati utente nel database Firebase
-        if (true) {
-          console.log("Verifica utente nel database riuscita");
-
-          // L'utente è valido nel database, reindirizza alla pagina "private"
-          this.successMessage = "Accesso riuscito! Benvenuto di nuovo!";
-          this.errorMessage = "";
-
-          // Naviga solo dopo che l'autenticazione è completata
-          this.navigationService.navigateToPrivateMain();
-          console.log("Verifica utente nel database fallita");
-
-        } else {
-          this.errorMessage = "I dati utente non sono corretti. Riprova.";
-        }
       })
       .catch((error) => {
+        // Operazioni da eseguire in caso di errore
         const errorCode = error.code;
         const errorMessage = error.message;
         console.error("Errore durante l'autenticazione:", errorCode, errorMessage);
-        this.errorMessage = "Si è verificato un errore durante l'accesso.";
+        this.errorMessage = errorMessage;
       });
   }
+}
+ 
+
+
+
+
+// signInUser() {
+  //   const auth = getAuth();
+
+  //   signInWithEmailAndPassword(auth, this.email, this.password)
+  //     .then(async (userCredential: UserCredential) => {
+  //       // Utente autenticato con successo
+  //       const user = userCredential.user;
+  //       // await this.verifyUserInFirebaseDatabase(user.uid)
+  //       // Ora puoi verificare i dati utente nel database Firebase
+  //       if (true) {
+  //         console.log("Verifica utente nel database riuscita");
+
+  //         // L'utente è valido nel database, reindirizza alla pagina "private"
+  //         this.successMessage = "Accesso riuscito! Benvenuto di nuovo!";
+  //         this.errorMessage = "";
+
+  //         // Naviga solo dopo che l'autenticazione è completata
+  //         this.navigationService.navigateToPrivateMain();
+  //         console.log("Verifica utente nel database fallita");
+
+  //       } else {
+  //         this.errorMessage = "I dati utente non sono corretti. Riprova.";
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       console.error("Errore durante l'autenticazione:", errorCode, errorMessage);
+  //       this.errorMessage = "Si è verificato un errore durante l'accesso.";
+  //     });
+//}
+
+
+
+
+
+
+
+
+
+
+
 
   // async verifyUserInFirebaseDatabase(userUid: string): Promise<boolean> {
   //   const db = getDatabase();
@@ -75,7 +107,7 @@ export class LoginComponent {
   //     return false;
   //   }
   // }
-}
+//}
 
 
 
@@ -83,6 +115,7 @@ export class LoginComponent {
 // import { Router } from '@angular/router';
 // import { getAuth, signInWithEmailAndPassword, UserCredential } from "firebase/auth";
 // import { getDatabase, ref, get } from "firebase/database";
+import { NavigationServiceService } from './../../../navigation-service.service';
 
 // @Component({
 //   selector: 'app-login',

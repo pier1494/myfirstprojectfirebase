@@ -1,34 +1,34 @@
 import { Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RecensioniComponent } from './recensioni.component';
+import { StoricoOrdiniComponent } from './storico-ordini.component';
 import { NavigationServiceService } from 'src/app/navigation-service.service';
 import { LoaderService } from 'src/app/loader.service';
 import { AuthService } from 'src/app/core/auth/authservice';
-import { RecensioniRoutingmodule } from './recensioniroutingmodule';
+import { StoricoOrdiniRoutingModule } from './storicoordiniroutingmodule';
+
 
 
 
 @NgModule({
   declarations: [
-    RecensioniComponent
+    StoricoOrdiniComponent
   ],
   imports: [
     CommonModule,
-  RecensioniRoutingmodule
+    StoricoOrdiniRoutingModule
   ],
   exports: [
-    RecensioniComponent
-
+StoricoOrdiniComponent
   ],
-  providers : [ 
+
+  providers: [
     NavigationServiceService,
     LoaderService,
     AuthService
-  ]
+  ],
 })
-  @Injectable({
-    providedIn: 'root',
-
-
+@Injectable({
+  providedIn: 'root',
 })
-export class RecensioniModule { }
+
+export class StoricoOrdiniModule { }

@@ -1,7 +1,18 @@
-<button type="button" value="login">
-    <button type="button" (click)="navigateToHome()">home</button>
+<div class="toolbar w-100">
+     <button type="button" (click)="navigateToHome()">home</button>
     <button type="button" (click)="navigateTologin()">login</button>
 
-        <button type="button" (click)="navigateToRegistration()">registrati</button>
+    <button type="button" (click)="navigateToRegistration()">registrati</button>
     <button type="button" (click)="navigateToPublic()">catalogo</button>
     <button type="button" (click)="navigateToCart()">carrello</button>
+    <button type="button" (click)="navigateToRecensioni()">recensioni</button>
+    <button type="button" (click)="navigateToStoricoordini()">storicoordini</button>
+    <div class="switch d-flex justify-content-end">
+        <input id="language-toggle" (click)="toggleLanguage()" class="check-toggle check-toggle-round-flat"
+            type="checkbox">
+        <label for="language-toggle"></label>
+
+        <span class="on">IT</span>
+        <span class="off">EN</span>
+    </div>
+</div>

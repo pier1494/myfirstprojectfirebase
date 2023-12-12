@@ -4,6 +4,9 @@ import { Router } from "@angular/router";
 import { getAuth, createUserWithEmailAndPassword, UserCredential } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "src/app/configurazioneFirebase";
+import { LoaderService } from 'src/app/loader.service';
+import { NavigationServiceService } from './../../../navigation-service.service';
+
 
 @Component({
   selector: 'app-registration',
@@ -16,8 +19,8 @@ export class RegistrationComponent {
   successMessage: string[] = [];
 
   constructor(private fb: FormBuilder, private router: Router,
-    private LoaderService: LoaderService
-   ) {
+    private  loading: LoaderService,
+    private NavigationServiceService: NavigationServiceService   ) {
   
     this.reactiveForm = this.fb.group({
       id: [''],
@@ -53,8 +56,10 @@ export class RegistrationComponent {
     this.successMessage = [];
     this.errorMessages = [];
     this.validatePassword();
+    this.loading.showLoader();
 
     if (this.reactiveForm.valid && this.errorMessages.length === 0) {
+
       const auth = getAuth();
       const email = this.reactiveForm.value.email;
       const password = this.reactiveForm.value.password;
@@ -65,8 +70,8 @@ export class RegistrationComponent {
         this.successMessage.push('Registrazione avvenuta con successo, ti stiamo indirizzando nella pagina di login');
 
         setTimeout(() => {
-          this.router.navigate(['/login']);
-        }, 2000);
+          this.NavigationServiceService.navigateTologin();
+        }, 1000);
 
         const docRef = await addDoc(collection(db, 'users'), {
           nome: this.reactiveForm.value.nome,
@@ -74,7 +79,7 @@ export class RegistrationComponent {
           email: email,
           password: password,
           id: user.uid
-        });
+        }); this.loading.hideLoader();
 
         console.log('Document written with ID: ', docRef.id);
       } catch (e: any) {
@@ -85,11 +90,14 @@ export class RegistrationComponent {
         } else {
           console.error('Errore durante la registrazione:', e);
           this.errorMessages.push('Errore durante la registrazione. Riprova più tardi.');
+        } 
+       
+
         }
-      }
     }
   }
 }
+
 
 
 // import { Component, ElementRef, ViewChild } from "@angular/core";
@@ -98,7 +106,6 @@ export class RegistrationComponent {
 // import { getAuth, createUserWithEmailAndPassword, UserCredential } from "firebase/auth";
 // import { collection, addDoc } from "firebase/firestore";
 // import { db } from "src/app/configurazioneFirebase";
-import { LoaderService } from 'src/app/loader.service';
 
 // @Component({
 //   selector: 'app-registration',

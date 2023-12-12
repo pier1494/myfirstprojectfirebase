@@ -15,7 +15,7 @@ import { getAnalytics } from 'firebase/analytics';
 import { firebaseConfig } from './configurazioneFirebase';
 import { NavigationServiceService } from './navigation-service.service';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
-import { TranslateLoader, TranslateModule, TranslatePipe } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ProductModule } from './core/product/product.module';
 import { SpinnerComponent } from './core/components/spinner/spinner.component';
@@ -23,6 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoaderService } from './loader.service';
 import { SharedmoudleModule } from './sharedmoudle/sharedmoudle.module';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { StoricoOrdiniModule } from './features/storico-ordini/storico-ordini.module';
+import { AuthModule } from './core/auth/auth.module';
+import { RecensioniModule } from './features/recensioni/recensioni.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
     AppRoutingModule,
 SharedmoudleModule,
     ProductModule,
+    AuthModule,
     HttpClientModule,
+    RecensioniModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -49,7 +54,8 @@ SharedmoudleModule,
   ],
   exports: [
     ProductModule,
-      SharedmoudleModule
+      SharedmoudleModule,
+      AuthModule
 
   ],
   providers: [
@@ -58,7 +64,8 @@ SharedmoudleModule,
     {
       provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true
     } ,
-  
+    { provide: TranslateService, useClass: TranslateService },
+
     { provide: NavigationServiceService, useClass: NavigationServiceService },
     { provide: LoaderService, useClass: LoaderService },
   ],

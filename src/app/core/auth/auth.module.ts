@@ -8,6 +8,8 @@ import { PrivateMainComponent } from './private-main/private-main.component';
 import { NavigationServiceService } from 'src/app/navigation-service.service';
 import { AuthRoutingModule } from './auth-routing-module';
 import { LoaderService } from 'src/app/loader.service';
+import { AuthService } from './authservice';
+import { SharedmoudleModule } from 'src/app/sharedmoudle/sharedmoudle.module';
 
 
 @NgModule({
@@ -20,8 +22,8 @@ import { LoaderService } from 'src/app/loader.service';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    AuthRoutingModule
-
+    AuthRoutingModule,
+SharedmoudleModule
   ],
   exports: [
     LoginComponent,
@@ -31,7 +33,8 @@ import { LoaderService } from 'src/app/loader.service';
 
   providers: [
     NavigationServiceService,
-    LoaderService
+    LoaderService,
+    AuthService
   ],
 })
 @Injectable({

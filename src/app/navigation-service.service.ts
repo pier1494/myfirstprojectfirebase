@@ -12,7 +12,7 @@ export class NavigationServiceService {
 
 
   navigateToPrivateMain() {
-    this.router.navigate(['/private']);
+    this.router.navigate(['/auth/private']);
   }
   navigateToRegistration() {
   this.router.navigate(['/auth/registration']);
@@ -29,5 +29,11 @@ navigateToHome() {
 }
 navigateToCart() {
   this.router.navigate(['/carrello']);
+}
+navigateToRecensioni() {
+  this.router.navigate(['recensioni/recensioni']);
+}
+navigateToStoricoordini() {
+  this.router.navigate(['/storico-ordini/storicoordini']);
 }
 }

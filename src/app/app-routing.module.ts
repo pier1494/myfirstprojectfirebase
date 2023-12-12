@@ -13,9 +13,15 @@ const routes: Routes = [
     }
   },
   {
-    path: 'recensioni',
+    path: 'storico-ordini',
     loadChildren: () => {
-      console.log("LOADING RECENSIONI");
+      console.log("LOADING STORICO-ORDINI");
+      return import('./features/storico-ordini/storico-ordini.module').then(m => m.StoricoOrdiniModule);
+    }
+  },
+    {path: 'recensioni',
+    loadChildren: () => {
+      console.log("LOADING recensioni");
       return import('./features/recensioni/recensioni.module').then(m => m.RecensioniModule);
     }
   },
@@ -24,12 +30,14 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'carrello', component: CartComponent },
   { path: 'public', component: PublicMainComponent },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {
 
  }

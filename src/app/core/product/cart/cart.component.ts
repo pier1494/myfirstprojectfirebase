@@ -22,18 +22,7 @@ count = 0;
     // translate.use('en');
   }
     
-  toggleLanguage(): void {
-    const currentLanguage = this.translate.currentLang;
 
-    // Decide quale lingua attivare in base allo stato corrente del toggle
-    const newLanguage = currentLanguage === 'en' ? 'it' : 'en';
-
-    this.cambiaLingua(newLanguage);
-  }
-
-  cambiaLingua(language: string): void {
-    this.translate.use(language);
-  }
   
     ngOnInit(): void {
     this.cartItems$ = this.cartServices.getCartItemsObservable();

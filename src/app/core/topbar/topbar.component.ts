@@ -1,5 +1,6 @@
 import { Component, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { NavigationServiceService } from 'src/app/navigation-service.service';
 
 @Component({
@@ -10,7 +11,22 @@ import { NavigationServiceService } from 'src/app/navigation-service.service';
 
 export class TopbarComponent {
 constructor(private router: Router,
-  private NavigationServiceService: NavigationServiceService,){}
+  private NavigationServiceService: NavigationServiceService,
+  private Translate:TranslateService){}
+
+  toggleLanguage(): void {
+    const currentLanguage = this.Translate.currentLang;
+
+    // Decide quale lingua attivare in base allo stato corrente del toggle
+    const newLanguage = currentLanguage === 'en' ? 'it' : 'en';
+
+    this.cambiaLingua(newLanguage);
+  }
+
+  cambiaLingua(language: string): void {
+    this.Translate.use(language);
+  }
+
   navigateToPrivateMain() {
     this.router.navigate(['/private']);
   }

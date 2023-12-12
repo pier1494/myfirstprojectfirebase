@@ -25,19 +25,19 @@ const routes: Routes = [
       return import('./features/recensioni/recensioni.module').then(m => m.RecensioniModule);
     }
   },
-
-
   
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'carrello', component: CartComponent },
   { path: 'public', component: PublicMainComponent },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {
 
  }

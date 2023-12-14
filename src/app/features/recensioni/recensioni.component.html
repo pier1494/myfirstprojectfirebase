@@ -21,7 +21,11 @@
      <h2>Recensioni dell'utente</h2>
      <ul>
        <li *ngFor="let review of userReviews | async">
-         <p>Recensione: {{ review.testo_recensione }}</p>
+        <div class="product-review">
+          <pm-social-icon [user]="review.user"></pm-social-icon>
+          <p>{{ review.testo_recensione }}</p>
+          <!-- Aggiungi qui ulteriori dettagli sulla recensione, come rating e data -->
+        </div>
          <!-- Altri dettagli della recensione -->
        </li>
      </ul>
@@ -32,6 +36,7 @@
      <ul>
        <li *ngFor="let review of productReviews | async">
          <p>Recensione: {{ review.testo_recensione }}</p>
+         <pm-social-icon [user]="review.user"></pm-social-icon>
          <!-- Altri dettagli della recensione -->
        </li>
      </ul>

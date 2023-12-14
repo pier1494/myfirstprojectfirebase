@@ -36,7 +36,7 @@ import { RecensioniModule } from './features/recensioni/recensioni.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-SharedmoudleModule,
+    SharedmoudleModule,
     ProductModule,
     AuthModule,
     HttpClientModule,

@@ -5,22 +5,24 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NavigationServiceService } from '../navigation-service.service';
 import { LoaderService } from '../loader.service';
 import { FcSliderComponent } from '../core/components/fc-slider/fc-slider.component';
+import { PmSocialIconComponent } from '../core/components/pm-social-icon/pm-social-icon.component';
 
 
 
 @NgModule({
   declarations: [
     SpinnerComponent,
-    FcSliderComponent
+    FcSliderComponent,
+    PmSocialIconComponent,
   ],
   imports: [
     CommonModule,
     MatProgressSpinnerModule,
-
   ],
   exports: [
     SpinnerComponent,
-    FcSliderComponent
+    FcSliderComponent,
+    PmSocialIconComponent
   ],
   providers: [
     NavigationServiceService,

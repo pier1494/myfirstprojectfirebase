@@ -22,11 +22,12 @@ export class RecensioniService {
 
 
   getRecensioni(): Observable<recensioni[]> {
+    this.loading.showLoader()
     const reviewsCollection = collection(db, 'recensioni');
     return new Observable<recensioni[]>(observer => {
-      this.loading.showLoader()
       getDocs(reviewsCollection).then(snapshot => {
         const reviews = snapshot.docs.map(doc => doc.data() as recensioni);
+        console.log("PASSO DALL'OBS: ", reviews);
         observer.next(reviews);
         observer.complete();
       }).catch(error => {
@@ -41,9 +42,10 @@ export class RecensioniService {
 
 
   getRecensioniByUserId(userId: string): Observable<recensioni[]> {
-    const reviewsByUserQuery = query(collection(db, 'recensioni'), where('userId', '==', userId));
+    this.loading.showLoader();
+    console.log("Cerco le recensioni di " + userId);
+    const reviewsByUserQuery = query(collection(db, 'recensioni'), where('id_utente', '==', userId));
     return new Observable<recensioni[]>(observer => {
-      this.loading.showLoader();
       getDocs(reviewsByUserQuery).then(snapshot => {
         const reviews = snapshot.docs.map(doc => doc.data() as recensioni);
         observer.next(reviews);
@@ -58,9 +60,9 @@ export class RecensioniService {
   }
 
   getRecensioniByProductId(productId: string): Observable<recensioni[]> {
-    const reviewsByProductQuery = query(collection(db, 'recensioni'), where('productId', '==', productId));
+    this.loading.showLoader();
+    const reviewsByProductQuery = query(collection(db, 'recensioni'), where('id_product', '==', productId));
     return new Observable<recensioni[]>(observer => {
-      this.loading.showLoader();
       getDocs(reviewsByProductQuery).then(snapshot => {
         const reviews = snapshot.docs.map(doc => doc.data() as recensioni);
         observer.next(reviews);

@@ -5,6 +5,7 @@ import { NavigationServiceService } from 'src/app/navigation-service.service';
 import { LoaderService } from 'src/app/loader.service';
 import { AuthService } from 'src/app/core/auth/authservice';
 import { StoricoOrdiniRoutingModule } from './storicoordiniroutingmodule';
+import { SharedmoudleModule } from 'src/app/sharedmoudle/sharedmoudle.module';
 
 
 
@@ -15,6 +16,7 @@ import { StoricoOrdiniRoutingModule } from './storicoordiniroutingmodule';
   ],
   imports: [
     CommonModule,
+    SharedmoudleModule,
     StoricoOrdiniRoutingModule
   ],
   exports: [

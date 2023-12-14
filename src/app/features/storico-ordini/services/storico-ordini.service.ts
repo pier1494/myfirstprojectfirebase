@@ -10,8 +10,10 @@ export class StoricoOrdiniService {
   constructor() { }
 
   getUltimoOrdine(): Observable<OrdineStorico> {
-    const myMock = <any> jsons.ultimoOrdini;
-    return of(myMock as OrdineStorico);
+    const myMock = <any> jsons.ultimoOrdine;
+    const res: OrdineStorico = new OrdineStorico();
+
+    return of(Object.assign(res, myMock) as OrdineStorico);
   }
 
   getUltimiOrdini(numOrdini: number): Observable<OrdineStorico[]> {

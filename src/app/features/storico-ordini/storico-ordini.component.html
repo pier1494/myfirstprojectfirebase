@@ -1,3 +1,13 @@
 <div class="mt-5">
-    <p>storico-ordini works!</p>
+    <h3>Ultimo Acquisto</h3>
+    <ul>
+        <li><strong>Prezzo:</strong> {{ ultimoOrdine.prezzoTotale }}</li>
+        <li><strong>Data acquisto:</strong> {{ ultimoOrdine.dataAcquisto }}</li>
+        <li><strong>Indirizzo spedizione:</strong> {{ ultimoOrdine.indirizzoSpedizione }}</li>
+        
+    </ul>
+    <app-fc-slider [items]="myItems" (itemClicked)="handleItemClicked($event)"></app-fc-slider>
+</div>
+<div>
+    <h3></h3>
 </div>

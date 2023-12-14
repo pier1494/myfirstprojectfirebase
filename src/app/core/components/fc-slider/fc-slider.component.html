@@ -3,6 +3,6 @@
   <div *ngFor="let item of items" class="slider-item" (click)="onItemClicked(item.id)">
     <img [src]="item.imgThumb" alt="{{item.title}}" class="item-image">
     <h3 class="item-title">{{item.title}}</h3>
-    <p class="item-description">{{item.description}}</p>
+    <p class="item-description" [innerHTML]="item.description"></p>
   </div>
 </div>

@@ -16,6 +16,10 @@ export interface prodotti {
 }
 
 export interface recensioni {
+product: any;
+user: any;
+review: any;
+  id: string;
   data_creazione: string;
   rating: Number;
   testo_recensione: string;

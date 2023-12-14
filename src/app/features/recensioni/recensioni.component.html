@@ -1,4 +1,4 @@
-<div class="mt-5">
+<!-- <div class="mt-5">
     <p>recensioni</p>
 </div>
 
@@ -6,3 +6,33 @@
 <div *ngFor="let review of reviews | async">
     <p>{{review.rating}}</p>
   </div>
+
+  <div *ngFor="let reviewData of reviews | async">
+    <p>{{ reviewData.review?.rating }}</p>
+     Aggiungi altri console.log() se necessario </div> -->
+     
+     <div class="mt-5" *ngFor="let review of reviews | async">
+      <p>{{review.rating}}</p>
+    </div>
+     
+     
+     
+     <div>
+     <h2>Recensioni dell'utente</h2>
+     <ul>
+       <li *ngFor="let review of userReviews | async">
+         <p>Recensione: {{ review.testo_recensione }}</p>
+         <!-- Altri dettagli della recensione -->
+       </li>
+     </ul>
+   </div>
+   
+   <div>
+     <h2>Recensioni del prodotto</h2>
+     <ul>
+       <li *ngFor="let review of productReviews | async">
+         <p>Recensione: {{ review.testo_recensione }}</p>
+         <!-- Altri dettagli della recensione -->
+       </li>
+     </ul>
+   </div>

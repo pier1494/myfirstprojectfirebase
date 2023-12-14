@@ -1,12 +1,12 @@
 <div class="toolbar w-100">
      <button type="button" (click)="navigateToHome()">home</button>
-    <button type="button" (click)="navigateTologin()">login</button>
+    <button type="button" (click)="navigateTologin()">{{'accedi'  | translate}}</button>
 
-    <button type="button" (click)="navigateToRegistration()">registrati</button>
-    <button type="button" (click)="navigateToPublic()">catalogo</button>
-    <button type="button" (click)="navigateToCart()">carrello</button>
-    <button type="button" (click)="navigateToRecensioni()">recensioni</button>
-    <button type="button" (click)="navigateToStoricoordini()">storicoordini</button>
+    <button type="button" (click)="navigateToRegistration()">{{'registrati' | translate}}</button>
+    <button type="button" (click)="navigateToPublic()">{{'catalogo'  | translate}}</button>
+    <button type="button" (click)="navigateToCart()">{{'carrello'  | translate}}</button>
+    <button type="button" (click)="navigateToRecensioni()">{{'recensioni'  | translate}}</button>
+    <button type="button" (click)="navigateToStoricoordini()">{{'storico ordini'  | translate}}</button>
     <div class="switch d-flex justify-content-end">
         <input id="language-toggle" (click)="toggleLanguage()" class="check-toggle check-toggle-round-flat"
             type="checkbox">

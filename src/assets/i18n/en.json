@@ -15,5 +15,12 @@
     "SUBTOTALE": "SUBTOTAL",
     "ACQUISTI CONSIGLIATI": "RECOMMENDED PURCHASES",
     "idoneo alla spedizione gratuita": "ELIGIBLE FOR FREE SHIPPING",
-    "Disponibile": "DISPONIB"
+    "Disponibile": "DISPONIB",
+
+    "accedi": "login",
+    "catalogo": "catalogue",
+    "registrati": "sign in",
+    "carrello": "cart",
+    "recensioni": "reviews",
+    "storico ordini": "order history"
 }

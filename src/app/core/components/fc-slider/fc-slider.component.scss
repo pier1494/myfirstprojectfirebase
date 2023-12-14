@@ -1,0 +1,25 @@
+/* fc-slider.component.css */
+.slider-container {
+  display: flex;
+  overflow-x: auto;
+}
+
+.slider-item {
+  flex: none;
+  margin-right: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.item-image {
+  width: 100%; /* Adjust as needed */
+  height: auto;
+}
+
+.item-title {
+  font-weight: bold;
+}
+
+.item-description {
+  font-size: smaller;
+}

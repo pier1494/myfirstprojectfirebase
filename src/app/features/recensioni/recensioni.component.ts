@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavigationServiceService } from 'src/app/navigation-service.service';
 import { TranslateService } from '@ngx-translate/core';
 import { recensioni } from 'src/app/core/product/interfaceproduct/dbmodel';
-import { RecensioniService } from './recensioniService';
+import { RecensioniService } from './services/recensioni.service';
 import { Observable, forkJoin } from 'rxjs';
 
 @Component({

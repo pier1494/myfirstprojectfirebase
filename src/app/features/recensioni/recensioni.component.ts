@@ -17,10 +17,10 @@ export class RecensioniComponent {
   constructor(private recensioniService: RecensioniService){}
 
   ngOnInit(): void {
-    const id_utente = 'ID dell\'utente';
+    const userId = 'ID dell\'utente';
     const productId = 'ID del prodotto';
     this.reviews= this.recensioniService.getRecensioni();
-    this.userReviews = this.recensioniService.getRecensioniByUserId(id_utente);
+    this.userReviews = this.recensioniService.getRecensioniByUserId(userId);
     this.productReviews = this.recensioniService.getRecensioniByProductId(productId);
   }
 }

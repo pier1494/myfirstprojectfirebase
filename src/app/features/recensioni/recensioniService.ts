@@ -40,8 +40,8 @@ export class RecensioniService {
   }
 
 
-  getRecensioniByUserId(id_utente: string): Observable<recensioni[]> {
-    const reviewsByUserQuery = query(collection(db, 'recensioni'), where('id_utente', '==', id_utente));
+  getRecensioniByUserId(userId: string): Observable<recensioni[]> {
+    const reviewsByUserQuery = query(collection(db, 'recensioni'), where('userId', '==', userId));
     return new Observable<recensioni[]>(observer => {
       this.loading.showLoader();
       getDocs(reviewsByUserQuery).then(snapshot => {

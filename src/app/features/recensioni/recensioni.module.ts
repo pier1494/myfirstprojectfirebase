@@ -6,7 +6,6 @@ import { LoaderService } from 'src/app/loader.service';
 import { AuthService } from 'src/app/core/auth/authservice';
 import { RecensioniRoutingmodule } from './recensioniroutingmodule';
 import { RecensioniService } from './recensioniService';
-import { SharedmoudleModule } from 'src/app/sharedmoudle/sharedmoudle.module';
 
 
 
@@ -16,8 +15,8 @@ import { SharedmoudleModule } from 'src/app/sharedmoudle/sharedmoudle.module';
   ],
   imports: [
     CommonModule,
-  RecensioniRoutingmodule,
-  SharedmoudleModule
+  RecensioniRoutingmodule
+  
   ],
   exports: [
     RecensioniComponent

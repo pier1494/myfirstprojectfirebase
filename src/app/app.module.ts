@@ -26,12 +26,14 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { StoricoOrdiniModule } from './features/storico-ordini/storico-ordini.module';
 import { AuthModule } from './core/auth/auth.module';
 import { RecensioniModule } from './features/recensioni/recensioni.module';
+import { FcAccordionItemComponent } from './core/components/fc-accordion-item/fc-accordion-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
     DashboardComponent,
+    FcAccordionItemComponent,
   ],
   imports: [
     BrowserModule,

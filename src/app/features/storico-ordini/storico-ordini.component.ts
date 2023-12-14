@@ -11,6 +11,7 @@ import { OrdineStorico } from './models/ordine-storico';
 export class StoricoOrdiniComponent {
   myItems: FcSliderItem[] = [];
   ultimoOrdine: OrdineStorico = new OrdineStorico();
+  listaOrdini: OrdineStorico[] = [];
 
   constructor(
     private storicoOrdiniService: StoricoOrdiniService
@@ -31,6 +32,10 @@ export class StoricoOrdiniComponent {
         } as FcSliderItem   
       })    
     })
+
+    this.storicoOrdiniService.getUltimiOrdini(5).subscribe(ordini => {
+      this.listaOrdini = ordini;
+    });
   }
 
 

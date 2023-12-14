@@ -1,0 +1,21 @@
+
+.accordion-item {
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+.title {
+  font-weight: bold;
+}
+.accordion-body {
+  padding: 10px;
+  background-color: #fff;
+}

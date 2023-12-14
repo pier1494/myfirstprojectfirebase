@@ -1,0 +1,14 @@
+<div class="accordion-item">
+  <div class="accordion-header" (click)="toggle()">
+    <span class="title">{{ title }}</span>
+    <!-- Template delle quickActions se necessario -->
+    <ng-container *ngIf="quickActionsTemplate">
+      <ng-container *ngTemplateOutlet="quickActionsTemplate; context: {$implicit: quickActions}"></ng-container>
+    </ng-container>
+    <!-- Pulsante accordion-->
+    <button class="toggle-button">{{ isExpanded ? 'Hide' : 'Show' }}</button>
+  </div>
+  <div class="accordion-body" *ngIf="isExpanded">
+    <ng-content></ng-content> <!-- Contenuto personalizzato -->
+  </div>
+</div>

@@ -18,6 +18,7 @@ interface User {
   `,
   // Stili CSS inline
   styles: [`
+  :host {
     .pm-social-icon {
       text-align: center;
     }
@@ -30,6 +31,7 @@ interface User {
       font-size: 16px;
       margin-top: 10px;
     }
+  }
   `]
 })
 export class PmSocialIconComponent {

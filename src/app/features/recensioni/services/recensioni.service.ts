@@ -5,6 +5,7 @@ import { db } from "src/app/configurazioneFirebase";
 import { recensioni } from "src/app/core/product/interfaceproduct/dbmodel";
 import { LoaderService } from "src/app/loader.service";
 import { NavigationServiceService } from "src/app/navigation-service.service";
+import { Review } from "../models/review.model";
 
 
 @Injectable({
@@ -21,12 +22,12 @@ export class RecensioniService {
     private loading: LoaderService) { }
 
 
-  getRecensioni(): Observable<recensioni[]> {
+  getRecensioni(): Observable<Review[]> {
     this.loading.showLoader()
     const reviewsCollection = collection(db, 'recensioni');
-    return new Observable<recensioni[]>(observer => {
+    return new Observable<Review[]>(observer => {
       getDocs(reviewsCollection).then(snapshot => {
-        const reviews = snapshot.docs.map(doc => doc.data() as recensioni);
+        const reviews = snapshot.docs.map(doc => doc.data() as Review);
         console.log("PASSO DALL'OBS: ", reviews);
         observer.next(reviews);
         observer.complete();

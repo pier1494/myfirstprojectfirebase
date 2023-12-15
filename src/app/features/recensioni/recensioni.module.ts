@@ -7,12 +7,14 @@ import { AuthService } from 'src/app/core/auth/authservice';
 import { RecensioniRoutingmodule } from './recensioniroutingmodule';
 import { RecensioniService } from './services/recensioni.service';
 import { SharedmoudleModule } from 'src/app/sharedmoudle/sharedmoudle.module';
+import { PmReviewComponent } from './components/pm-review/pm-review.component';
 
 
 
 @NgModule({
   declarations: [
-    RecensioniComponent
+    RecensioniComponent,
+    PmReviewComponent
   ],
   imports: [
     CommonModule,

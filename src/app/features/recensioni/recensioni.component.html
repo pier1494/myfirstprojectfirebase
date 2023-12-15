@@ -12,7 +12,7 @@
      Aggiungi altri console.log() se necessario </div> -->
      
      <div class="mt-5" *ngFor="let review of reviews | async">
-      <p>{{review.rating}}</p>
+      <app-pm-review [review]="review"></app-pm-review>
     </div>
      
      

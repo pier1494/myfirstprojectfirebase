@@ -1,0 +1,36 @@
+:host {
+  .pm-review {
+    background-color: white; /* Sfondo bianco */
+    border: 1px solid #cc8a00; /* Bordo ocra */
+    border-radius: 10px; /* Angoli arrotondati */
+    padding: 15px; /* Spaziatura interna */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+    max-width: 450px; /* Larghezza massima */
+    margin: 10px; /* Margine esterno */
+    position: relative; /* Posizionamento relativo per il componente interno */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .review-content {
+    padding: 10px 0; /* Spaziatura interna per il contenuto della recensione */
+  }
+  
+  .review-details {
+    font-size: 0.85em; /* Ridimensionamento dei dettagli */
+    color: #666; /* Colore del testo */
+    margin-top: 5px; /* Spazio sopra i dettagli */
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  pm-social-icon {
+    position: relative; /* Posizionamento relativo rispetto al genitore */
+    bottom: 0px; /* Posizionato 10px dal basso */
+    right: 0px; /* Posizionato 0px da destra */
+    margin-right: 10px;
+  }
+  
+}

@@ -6,6 +6,7 @@ import { RecensioniService } from './services/recensioni.service';
 import { Observable, forkJoin, from, mergeMap, switchMap, toArray } from 'rxjs';
 import { SocialService } from './services/social.service';
 import { map } from 'rxjs';
+import { Review } from './models/review.model';
 
 @Component({
   selector: 'app-recensioni',
@@ -15,7 +16,7 @@ import { map } from 'rxjs';
 export class RecensioniComponent {
   userReviews: Observable<recensioni[]> = new Observable<recensioni[]>();
   productReviews: Observable<recensioni[]> = new Observable<recensioni[]>();
-  reviews: Observable<recensioni[]> = new Observable<recensioni[]>();
+  reviews: Observable<Review[]> = new Observable<Review[]>();
 
   constructor(
     private recensioniService: RecensioniService,
@@ -33,6 +34,7 @@ export class RecensioniComponent {
         console.log("ARRIVO NELLO SWITCHMAP CON " + userId, r);
         return this.socialService.getUserInfo(userId).pipe(map((utente) => {
           console.log("OTTENGO INFO UTENTE ", utente);
+          // TODO: operazione replicata -> da spostare in un service o metodo
           return r.map((el: any) => ({
             ...el,
             user: {
@@ -53,6 +55,7 @@ export class RecensioniComponent {
             console.log("PROCESSO LA SINGOLA REVIEW");
             return this.socialService.getUserInfo(review.id_utente).pipe(map((utente) => {
               console.log("PROCESSO I DATI DELL'UTENTE", utente);
+              // TODO: operazione replicata -> da spostare in un service o metodo
               return {
                 ...review,
                 user: {
@@ -70,6 +73,7 @@ export class RecensioniComponent {
     );
 
   }
+
 }
 // ngOnInit(): void {
   //Called after the constructor, initializing input properties, and the first call to ngOnChanges.

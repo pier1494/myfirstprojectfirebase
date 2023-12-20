@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './../authservice';
+import { NavigationServiceService } from './../../../navigation-service.service';
+
 
 @Component({
   selector: 'app-login',
@@ -115,7 +117,6 @@ export class LoginComponent {
 // import { Router } from '@angular/router';
 // import { getAuth, signInWithEmailAndPassword, UserCredential } from "firebase/auth";
 // import { getDatabase, ref, get } from "firebase/database";
-import { NavigationServiceService } from './../../../navigation-service.service';
 
 // @Component({
 //   selector: 'app-login',

@@ -1,4 +1,103 @@
-<div class="container h-100 font d-flex">
+<div class="login-container my-5 col-8">
+    <h2 class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 text-center">Registrati</h2>
+
+    <div class="d-flex justify-content-center align-items-center">
+
+        <div class="col-5 order-2 order-lg-1">
+
+            <div *ngIf="errorMessages.length > 0" class="message error-messages">
+                <p *ngFor="let errorMessage of errorMessages">{{ errorMessage }}</p>
+            </div>
+
+            <div *ngIf="successMessage.length > 0" class="message success-message">
+                <p>{{ successMessage[0] }}</p>
+            </div>
+
+            <form [formGroup]="reactiveForm" (ngSubmit)="registerUser()" novalidate>
+                <!-- ... altri campi del form ... -->
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" formControlName="nome" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="cognome">Cognome</label>
+                    <input type="text" formControlName="cognome" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" formControlName="email" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Conferma Password</label>
+                    <input type="password" formControlName="confirmPassword" class="form-control">
+                </div>
+
+                <div class="d-flex  justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Registrati</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+            <img src="https://crowdinvestitalia.it/img/registrati.png" class="img-fluid w-75">
+        </div>
+    </div>
+</div>
+<!-- <div class="login-container my-5">
+    <h2 class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrati</h2>
+  
+    <div *ngIf="errorMessages.length > 0" class="message error-messages">
+      <p *ngFor="let errorMessage of errorMessages">{{ errorMessage }}</p>
+    </div>
+  
+    <div *ngIf="successMessage.length > 0" class="message success-message">
+      <p>{{ successMessage[0] }}</p>
+    </div>
+  
+    <form [formGroup]="reactiveForm" (ngSubmit)="registerUser()" novalidate>
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" formControlName="nome" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="cognome">Cognome</label>
+        <input type="text" formControlName="cognome" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" formControlName="email" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="confirmPassword">Conferma Password</label>
+        <input type="password" formControlName="confirmPassword" class="form-control">
+      </div>
+  
+      <div class="d-flex mb-lg-4">
+        <button type="submit" class="btn btn-primary ms-5 btn-lg">Registrati</button>
+      </div>
+    </form>
+  </div>
+  
+ -->
+
+
+<!-- <div class="container h-100 font d-flex">
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-md-12 col-xl-11">
             <div style="border-radius: 25px;">
@@ -9,19 +108,19 @@
                         </div>
                         <div class="col-md-10 col-lg-6 col-xl-12 order-2 order-lg-1">
 
-                            <p  class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrati</p>
-                            <!-- Messaggio di errore -->
-                            <div *ngIf="errorMessages.length > 0" class="error-messages">
+                            <p  class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrati</p> -->
+<!-- Messaggio di errore -->
+<!-- <div *ngIf="errorMessages.length > 0" class="error-messages">
                                 <p *ngFor="let errorMessage of errorMessages">{{ errorMessage }}</p>
-                            </div>
+                            </div> -->
 
-                            <!-- Messaggio di successo -->
-                            <div *ngIf="successMessage.length > 0" class="success-message">
+<!-- Messaggio di successo -->
+<!-- <div *ngIf="successMessage.length > 0" class="success-message">
                                 <p>{{ successMessage[0] }}</p>
                             </div>
                             <form [formGroup]="reactiveForm" (ngSubmit)="registerUser()" novalidate>
-                                <!-- ... altri campi del form ... -->
-                                <div class="form-group">
+                                ... altri campi del form ... -->
+<!-- <div class="form-group">
                                     <label  for="nome">Nome</label>
                                     <input type="text" value="nome" formControlName="nome" class="form-control">
                                 </div>
@@ -63,4 +162,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

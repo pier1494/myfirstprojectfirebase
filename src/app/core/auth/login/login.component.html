@@ -1,4 +1,4 @@
-<div class="login-container">
+<div class="login-container my-5">
   <h2>Login</h2>
 
   <form method="post">
@@ -11,8 +11,10 @@
       <label for="password">Password</label>
       <input [(ngModel)]="password" type="password" id="password" name="password" required>
     </div>
-    <button type="button" (click)="signInUser()">Accedi</button>
+    <div class="form-group justify-content-center">
 
+    <button type="button" (click)="signInUser()">Accedi</button>
+</div>
 
     <!-- <input type="submit" value="accedi" (click)="signInUser()"> -->
   </form>

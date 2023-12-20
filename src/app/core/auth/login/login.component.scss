@@ -12,4 +12,123 @@
     color: green;
     background-color: #d9ffd9;
   }
+
   
+.login-container {
+  background-color: white;
+  border: 1px solid #cc8a00;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  margin: 10px auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex; /* Aggiunto display flex */
+  flex-direction: column; /* Cambiato a colonna per allineamento verticale */
+  align-items: center; /* Centrato verticalmente */
+}
+
+label {
+  margin-bottom: 5px; /* Aggiunto margine sotto l'etichetta */
+}
+
+input {
+  width: 100%; /* Larghezza al 100% del contenitore */
+  padding: 8px; /* Spaziatura interna */
+  margin-top: 5px; /* Aggiunto margine sopra l'input */
+}
+
+
+
+button {
+  background-color: #cc8a00;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Aggiunta transizione per una transizione fluida del colore di sfondo */
+
+  &:hover {
+    background-color: #996300; /* Cambia il colore al passaggio del mouse */
+  }
+
+  &:active {
+    background-color: #663a00; /* Cambia il colore al click del mouse */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Aggiunge un'ombra al click del mouse */
+  }
+}
+  // .login-container {
+  //   max-width: 400px;
+  //   margin: 0 auto;
+  //   padding: 20px;
+  //   border: 1px solid #ccc;
+  //   border-radius: 5px;
+  //   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  //   margin-top: 100px; /* Aggiunto spazio sopra il container */
+  // }
+  
+  // h2 {
+  //   text-align: center;
+  //   color: #333;
+  // }
+  
+  // form {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
+  // .form-group {
+  //   margin-bottom: 15px;
+  // }
+  
+  // label {
+  //   font-weight: bold;
+  //   color: #333;
+  // }
+  
+  // input {
+  //   padding: 8px;
+  //   border: 1px solid #ccc;
+  //   border-radius: 3px;
+  //   width: 100%;
+  // }
+  
+  // button {
+  //   background-color: #4caf50;
+  //   color: white;
+  //   padding: 10px;
+  //   border: none;
+  //   border-radius: 3px;
+  //   cursor: pointer;
+  // }
+  
+  // button:hover {
+  //   background-color: #45a049;
+  // }
+  
+  // .message {
+  //   margin-top: 15px;
+  //   padding: 10px;
+  //   border-radius: 3px;
+  // }
+  
+  // .error {
+  //   background-color: #f44336;
+  //   color: white;
+  // }
+  
+  // .success {
+  //   background-color: #4caf50;
+  //   color: white;
+  // }

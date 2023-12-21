@@ -41,6 +41,7 @@ import { RecensioniModule } from './features/recensioni/recensioni.module';
     AuthModule,
     HttpClientModule,
     RecensioniModule,
+    
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -50,6 +51,7 @@ import { RecensioniModule } from './features/recensioni/recensioni.module';
       defaultLanguage: 'it',
     }),
     BrowserAnimationsModule
+    
     
   ],
   exports: [

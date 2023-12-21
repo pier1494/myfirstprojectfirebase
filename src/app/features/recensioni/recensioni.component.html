@@ -1,15 +1,4 @@
-<!-- <div class="mt-5">
-    <p>recensioni</p>
-</div>
 
-
-<div *ngFor="let review of reviews | async">
-    <p>{{review.rating}}</p>
-  </div>
-
-  <div *ngFor="let reviewData of reviews | async">
-    <p>{{ reviewData.review?.rating }}</p>
-     Aggiungi altri console.log() se necessario </div> -->
      
      <div class="mt-5" *ngFor="let review of reviews | async">
       <app-pm-review [review]="review"></app-pm-review>

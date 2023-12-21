@@ -23,7 +23,9 @@ import { SharedmoudleModule } from 'src/app/sharedmoudle/sharedmoudle.module';
     FormsModule,
     ReactiveFormsModule,
     AuthRoutingModule,
-SharedmoudleModule
+SharedmoudleModule,
+
+
   ],
   exports: [
     LoginComponent,

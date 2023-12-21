@@ -7,6 +7,7 @@ import { Observable, forkJoin, from, mergeMap, switchMap, toArray } from 'rxjs';
 import { SocialService } from './services/social.service';
 import { map } from 'rxjs';
 import { Review } from './models/review.model';
+import { DataService } from './../../cache/dataService';
 
 @Component({
   selector: 'app-recensioni',
@@ -17,13 +18,20 @@ export class RecensioniComponent {
   userReviews: Observable<recensioni[]> = new Observable<recensioni[]>();
   productReviews: Observable<recensioni[]> = new Observable<recensioni[]>();
   reviews: Observable<Review[]> = new Observable<Review[]>();
+  data: any;
 
-  constructor(
+  constructor(    private DataService: DataService,
+
     private recensioniService: RecensioniService,
     private socialService: SocialService
   ){}
 
   ngOnInit(): void {
+    this.DataService.getData('https://api.example.com/data').subscribe(data => {
+
+      this.data = data;
+    });
+
     //const userId = 'ID dell\'utente';
     const userId = 'GBrt5EcaHshq9XBLf0oW';
     const productId = 'bQfenlbsfsW3AQ8Ah2Bh';
@@ -75,15 +83,3 @@ export class RecensioniComponent {
   }
 
 }
-// ngOnInit(): void {
-  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-  //Add 'implements OnInit' to the class.
-  // this.reviews= this.recensioniService.getRecensioni();
-
-//   this.recensioniService.getRecensioni().subscribe(reviews => {
-//     // Per ogni recensione, ottieni i dettagli aggiuntivi (utente e prodotto)
-//     this.reviews = forkJoin(
-//       reviews.map(review => this.recensioniService.getReviewDetails(review.id))
-//     );
-//   });
-//  }

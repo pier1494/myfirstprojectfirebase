@@ -1,7 +1,9 @@
 <div class="pm-review">
   <pm-social-icon [user]="user"></pm-social-icon>
   <div class="review-content">
-    <p>{{ review?.testo_recensione ?? 'Recensione senza parole!'}}</p>
+    <!-- <p>{{ review?.testo_recensione ?? 'Recensione senza parole!' }}</p> -->
+    <p>{{ review && review.testo_recensione ? review.testo_recensione : 'Recensione senza parole!'}}</p>
+
     <div class="review-details">
       <span>Rating: {{ review.rating }}</span>
       <span>Data: {{ review.data_creazione | date }}</span>

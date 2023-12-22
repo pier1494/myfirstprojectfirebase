@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
 import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
-import { Observable, catchError, combineLatest, forkJoin, map, switchMap } from "rxjs";
+import { Observable, catchError, combineLatest, forkJoin, map, of, switchMap } from "rxjs";
 import { db } from "src/app/configurazioneFirebase";
 import { recensioni } from "src/app/core/product/interfaceproduct/dbmodel";
 import { LoaderService } from "src/app/loader.service";
 import { NavigationServiceService } from "src/app/navigation-service.service";
 import { Review } from "../models/review.model";
+import { DataService } from "src/app/cache/dataService";
 
 
 @Injectable({
@@ -18,26 +19,33 @@ export class RecensioniService {
   productId!: string;
   
 
-  constructor(private navigationService: NavigationServiceService,
-    private loading: LoaderService) { }
+  constructor(
+    private dataService: DataService,
+    private navigationService: NavigationServiceService,
+    private loading: LoaderService
+  ) { 
+
+  }
 
 
   getRecensioni(): Observable<Review[]> {
-    this.loading.showLoader()
-    const reviewsCollection = collection(db, 'recensioni');
-    return new Observable<Review[]>(observer => {
-      getDocs(reviewsCollection).then(snapshot => {
-        const reviews = snapshot.docs.map(doc => doc.data() as Review);
-        console.log("PASSO DALL'OBS: ", reviews);
-        observer.next(reviews);
-        observer.complete();
-      }).catch(error => {
-        console.error('Errore durante il recupero dei prodotti da Firebase', error);
-        observer.error(error)
-      }).finally(() => {
-        this.loading.hideLoader();
-      });;
-
+    return this.dataService.getGenericData('recensioni',() => {
+      console.log(`Effettuo la chiamata alle recensioni`)
+      const reviewsCollection = collection(db, 'recensioni');
+      this.loading.showLoader()
+      return new Observable<Review[]>(observer => {
+        getDocs(reviewsCollection).then(snapshot => {
+          const reviews = snapshot.docs.map(doc => doc.data() as Review);
+          console.log("PASSO DALL'OBS: ", reviews);
+          observer.next(reviews);
+          observer.complete();
+        }).catch(error => {
+          console.error('Errore durante il recupero dei prodotti da Firebase', error);
+          observer.error(error)
+        }).finally(() => {
+          this.loading.hideLoader();
+        });
+      });
     });
   }
 

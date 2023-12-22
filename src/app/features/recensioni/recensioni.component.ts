@@ -20,18 +20,12 @@ export class RecensioniComponent {
   reviews: Observable<Review[]> = new Observable<Review[]>();
   data: any;
 
-  constructor(    private DataService: DataService,
-
+  constructor(   
     private recensioniService: RecensioniService,
     private socialService: SocialService
   ){}
 
   ngOnInit(): void {
-    this.DataService.getData('https://api.example.com/data').subscribe(data => {
-
-      this.data = data;
-    });
-
     //const userId = 'ID dell\'utente';
     const userId = 'GBrt5EcaHshq9XBLf0oW';
     const productId = 'bQfenlbsfsW3AQ8Ah2Bh';

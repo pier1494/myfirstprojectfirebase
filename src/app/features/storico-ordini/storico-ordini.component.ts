@@ -19,20 +19,6 @@ export class StoricoOrdiniComponent {
   }
 
   ngOnInit(){
-    this.storicoOrdiniService.getUltimoOrdine().subscribe((ultimoOrdine) => {
-      this.ultimoOrdine = ultimoOrdine;
-      this.myItems = ultimoOrdine.listaProdotti.map(prodotto => {
-        return {
-          title: prodotto.titolo,
-          description: `${prodotto.descrizione} <br/> 
-          prezzo unitario: <strong>${ prodotto.prezzo } €</strong> <br/> 
-          quantità: <strong>${ prodotto.quantita }</strong>`,
-          imgThumb: prodotto.thumb,
-          id: prodotto.id
-        } as FcSliderItem   
-      })    
-    })
-
     this.storicoOrdiniService.getUltimiOrdini(5).subscribe(ordini => {
       this.listaOrdini = ordini;
     });

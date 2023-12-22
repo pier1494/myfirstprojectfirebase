@@ -13,7 +13,7 @@ export class FcAccordionItemComponent {
 
   @Input() detailData: any;
 
-  isExpanded: boolean = false;
+  @Input() isExpanded: boolean = false;
 
   toggle() {
     this.isExpanded = !this.isExpanded;

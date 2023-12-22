@@ -1,31 +1,21 @@
-<div class="mt-5">
-    <h3>Ultimo Acquisto</h3>
+<div class="container mt-5">
+    <app-fc-accordion-item *ngFor="let ordine of listaOrdini; let i = index"
+        [title]="i == 0 ? 'Ultimo ordine' : ordine.title"
+        [quickActionsTemplate]="accordionDetail"
+        [isExpanded]="i==0"
+    >
+
     <ul>
-        <li><strong>Prezzo:</strong> {{ ultimoOrdine.prezzoTotale }} €</li>
-        <li><strong>Data acquisto:</strong> {{ ultimoOrdine.dataAcquisto }}</li>
-        <li><strong>Indirizzo spedizione:</strong> {{ ultimoOrdine.indirizzoSpedizione }}</li>
+        <li><strong>Prezzo:</strong> {{ ordine.prezzoTotale }} €</li>
+        <li><strong>Data acquisto:</strong> {{ ordine.dataAcquisto }}</li>
+        <li><strong>Indirizzo spedizione:</strong> {{ ordine.indirizzoSpedizione }}</li>
         
     </ul>
-    <app-fc-slider [items]="myItems" (itemClicked)="handleItemClicked($event)"></app-fc-slider>
+    <app-fc-slider [items]="ordine.items" (itemClicked)="handleItemClicked($event)"></app-fc-slider>
+
+    </app-fc-accordion-item>
+
 </div>
-<div>
-    <h3></h3>
-</div>
-
-<app-fc-accordion-item *ngFor="let ordine of listaOrdini"
-    [title]="ordine.title"
-    [quickActionsTemplate]="accordionDetail"
->
-
-<ul>
-    <li><strong>Prezzo:</strong> {{ ordine.prezzoTotale }} €</li>
-    <li><strong>Data acquisto:</strong> {{ ordine.dataAcquisto }}</li>
-    <li><strong>Indirizzo spedizione:</strong> {{ ordine.indirizzoSpedizione }}</li>
-    
-</ul>
-<app-fc-slider [items]="ordine.items" (itemClicked)="handleItemClicked($event)"></app-fc-slider>
-
-</app-fc-accordion-item>
 
 <ng-template #accordionDetail>
 <button>Riproponi</button>

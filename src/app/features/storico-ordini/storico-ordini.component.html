@@ -11,3 +11,22 @@
 <div>
     <h3></h3>
 </div>
+
+<app-fc-accordion-item *ngFor="let ordine of listaOrdini"
+    [title]="ordine.title"
+    [quickActionsTemplate]="accordionDetail"
+>
+
+<ul>
+    <li><strong>Prezzo:</strong> {{ ordine.prezzoTotale }} €</li>
+    <li><strong>Data acquisto:</strong> {{ ordine.dataAcquisto }}</li>
+    <li><strong>Indirizzo spedizione:</strong> {{ ordine.indirizzoSpedizione }}</li>
+    
+</ul>
+<app-fc-slider [items]="ordine.items" (itemClicked)="handleItemClicked($event)"></app-fc-slider>
+
+</app-fc-accordion-item>
+
+<ng-template #accordionDetail>
+<button>Riproponi</button>
+</ng-template>
